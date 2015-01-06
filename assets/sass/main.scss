@@ -1,0 +1,405 @@
+// General imports ------------------------------------------------------------
+//
+// These imports don't generate CSS, but make defined variables, functions,
+// and mixins available for further usage
+
+@import 'base/config_global';
+@import 'base/config_site';
+@import 'base/state';
+
+// Normalize and document imports ---------------------------------------------
+
+@import 'module/normalize';
+@import 'module/doc';
+
+// Module imports -------------------------------------------------------------
+
+//@import 'module/container';
+//@import 'module/font';
+@import 'module/text';
+//@import 'module/reporting';
+//@import 'module/form';
+//@import 'module/button';
+
+// Vendor imports -------------------------------------------------------------
+
+//@import 'vendor/somestyles';
+
+// Styles ---------------------------------------------------------------------
+
+.is-hidden {
+	@extend %is-hidden;
+}
+
+$logo-width: 40px;
+.logo {
+	position: absolute;
+	top: rem($spacing-y);
+	left: rem($spacing-x);
+	z-index: 9;
+	display: block;
+	width: 40px;
+	height: auto;
+	fill: $white;
+
+	@include media-min(1100) {
+		position: fixed;
+		fill: $resolution-blue;
+	}
+}
+
+main {
+	@include media-min(1100) {
+		margin-left: rem(2*$spacing-x + $logo-width);
+	}
+}
+
+	.block {
+		/* @include media-min(830) {
+			width: 50%;
+		} */
+		opacity: 0;
+	}
+
+		.block-wrapper {
+			padding: rem($spacing-y) rem($spacing-x);
+			background-color: $white;
+
+			@include media-min(1200) {
+				font-size: em(18);
+			}
+			@include media-min(1400) {
+				font-size: em(20);
+			}
+		}
+
+			.block-link {
+				display: inline-block;
+				padding: rem(10) rem(15);
+				text-decoration: none;
+				line-height: 1;
+				color: $white;
+				fill: $white;
+				transition: all .2s ease-out;
+
+				@include media-max(500) {
+					display: block;
+					width: 100%;
+					text-align: center;
+
+					& + .block-link {
+						margin-top: rem($spacing-y/2);
+					}
+				}
+
+				&:hover {
+					transition: none;
+				}
+
+				.icon {
+					display: inline-block;
+					margin-left: rem(15);
+
+					width: 16px;
+					height: auto;
+
+					&.icon-arrow-right {
+						width: 12px;
+					}
+
+					&.icon-mail {
+						width: 13px;
+					}
+				}
+
+				.twitter & .icon {
+					fill: $black;
+				}
+			}
+
+	.introduction,
+	.headstart {
+		&, a {
+			color: $white;
+		}
+	}
+
+	.introduction {
+		.personal-wrapper {
+			background: $regal-blue url(../images/bg-pattern-feathers.jpg);
+
+			@include media-max(1099) {
+				padding-top: rem(52px + 2*$spacing-y);
+			}
+
+			.block-link {
+				background-color: shade($regal-blue, 30);
+
+				&:hover,
+				&:active {
+					color: $regal-blue;
+					fill: $regal-blue;
+				}
+				&:hover {
+					background: $white;
+				}
+				&:active {
+					background: shade($white, 20);
+				}
+			}
+		}
+
+		.curriculum-wrapper {
+			background-color: $resolution-blue;
+
+			.block-link {
+				background-color: shade($resolution-blue, 30);
+
+				&:hover,
+				&:active {
+					color: $resolution-blue;
+					fill: $resolution-blue;
+				}
+				&:hover {
+					background: $white;
+				}
+				&:active {
+					background: shade($white, 20);
+				}
+
+				.icon {
+					position: relative;
+					top: rem(4);
+				}
+			}
+		}
+	}
+
+	.headstart {
+		.block-wrapper {
+			background: $blue-chill url(../images/bg-pattern-tree.jpg);
+		}
+
+		.block-link {
+			background-color: shade($blue-chill, 30);
+
+			&:hover,
+			&:active {
+				color: $blue-chill;
+				fill: $blue-chill;
+			}
+			&:hover {
+				background: $white;
+			}
+			&:active {
+				background: shade($white, 20);
+			}
+		}
+
+		img {
+			max-width: 300px;
+		}
+	}
+
+	.blurbs {
+		ul {
+			padding: 0;
+			list-style-type: none;
+
+			a {
+				display: inline-block;
+				padding: rem(15) 0;
+				font-family: $font-stack-sans;
+				font-size: em(20);
+				@extend %is-bold;
+				line-height: 1.23;
+				color: $chateau-green;
+
+				@include media-min(1200) {
+					font-size: em(23, 18);
+				}
+				@include media-min(1400) {
+					font-size: em(26, 20);
+				}
+			}
+		}
+
+		.wf-active & ul a {
+			font-family: 'League Spartan Bold', $font-stack-sans;
+		}
+
+		.block-link {
+			background-color: shade($chateau-green, 30);
+
+			&:hover,
+			&:active {
+				color: $chateau-green;
+				fill: $chateau-green;
+			}
+			&:hover {
+				background: $gallery;
+			}
+			&:active {
+				background: shade($white, 20);
+			}
+		}
+	}
+
+	.instagram {
+		position: relative;
+		@extend %is-cf;
+
+		.block-wrapper {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			z-index: 10;
+			background: none;
+		}
+
+			.block-link {
+				background-color: $dusty-grey;
+				background-color: rgba($black, .6);
+
+				&:hover,
+				&:active {
+					color: $black;
+					fill: $black;
+				}
+				&:hover {
+					background: $white;
+				}
+				&:active {
+					background: shade($white, 20);
+				}
+			}
+	}
+
+		.insta-wrapper {
+			position: relative;
+			width: 50%;
+			padding-top: 50%;
+			float: left;
+
+			.loader {
+				z-index: 1;
+				background: $gallery url(../images/preloader-instagram.gif) no-repeat center center;
+				transition: opacity .25s ease-out;
+			}
+
+			.loader,
+			img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+
+			.has-loaded ~ .loader {
+				opacity: 0;
+			}
+		}
+
+	.twitter {
+		.block-wrapper {
+			background: $gallery url(../images/bg-pattern-maze.jpg);
+			background-size: 46px 23px;
+
+			.block-link {
+				background-color: shade($gallery, 10);
+				color: $black;
+
+				&:hover,
+				&:active {
+					color: $black;
+					fill: $black;
+				}
+				&:hover {
+					background: $white;
+				}
+				&:active {
+					background: shade($white, 20);
+				}
+
+				.icon {
+					fill: $black;
+				}
+			}
+		}
+
+			.latest-tweet {
+				&, a {
+					color: $blue-chill;
+				}
+
+				.timePosted {
+					font-size: em(14);
+
+					@include media-min(1200) {
+						font-size: em(14, 18);
+					}
+					@include media-min(1400) {
+						font-size: em(14, 20);
+					}
+				}
+			}
+	}
+
+	footer {
+		color: $dusty-grey;
+		line-height: 1.625;
+
+		@include media-min(1200) {
+			font-size: em(16, 18);
+		}
+		@include media-min(1400) {
+			font-size: em(16, 20);
+		}
+
+		.block-wrapper {
+			background: none;
+		}
+	}
+
+		.social-media-wrapper {
+			display: flex;
+			margin-bottom: rem($spacing-y);
+
+			a {
+				position: relative;
+				display: inline-block;
+				flex: 1;
+				height: 32px;
+				text-align: center;
+				transition: all .2s ease-out;
+				fill: $dusty-grey;
+
+				&:hover {
+					transition: none;
+					fill: $regal-blue;
+				}
+
+				&:active {
+					fill: $black;
+				}
+			}
+
+			.icon {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				display: inline-block;
+				width: 32px;
+				height: auto;
+			}
+		}
+
+
+// Print ----------------------------------------------------------------------
+//
+// Inline to avoid the request
+
+@import 'module/print';

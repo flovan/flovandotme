@@ -1,0 +1,21 @@
+@font-face {
+	font-family: 'Ahamono Monospaced';
+	font-style: normal;
+	font-weight: normal;
+	src: url('../fonts/ahamono-monospaced.eot'); // IE9 Compat Modes
+	src: url('../fonts/ahamono-monospaced.eot?#iefix') format('embedded-opentype'), // IE6-IE8
+	     url('../fonts/ahamono-monospaced.woff') format('woff'), // Modern Browsers
+	     url('../fonts/ahamono-monospaced.ttf')  format('truetype'), // Safari, Android, iOS
+	     url('../fonts/ahamono-monospaced.svg#svgAhamonoMonospaced') format('svg'); // Legacy iOS
+}
+
+@font-face {
+	font-family: 'League Spartan Bold';
+	font-style: normal;
+	font-weight: bold;
+	src: url('../fonts/leaguespartan-bold.eot'); // IE9 Compat Modes
+	src: url('../fonts/leaguespartan-bold.eot?#iefix') format('embedded-opentype'), // IE6-IE8
+	     url('../fonts/leaguespartan-bold.woff') format('woff'), // Modern Browsers
+	     url('../fonts/leaguespartan-bold.ttf')  format('truetype'), // Safari, Android, iOS
+	     url('../fonts/leaguespartan-bold.svg#svgLeagueSpartanBold') format('svg'); // Legacy iOS
+}
