@@ -15,9 +15,8 @@
 // Module imports -------------------------------------------------------------
 
 //@import 'module/container';
-@import 'module/font';
-@import 'module/text';
-//@import 'module/icons';
+//@import 'module/font';
+//@import 'module/text';
 //@import 'module/reporting';
 //@import 'module/form';
 //@import 'module/button';
@@ -28,105 +27,9 @@
 
 // Styles ---------------------------------------------------------------------
 
-aside, .content {
-	padding-left: 1.618em;
-	padding-right: 1.618em;
 
-	@include media-min(480) {
-		padding-left: 2.625em;
-		padding-right: 2.625em;
-	}
-}
-aside {
-	padding-top: em(39);
-	
-	@include media-max(739) {
-		padding-bottom: em(47);
-		border-bottom: 1px solid rgba($black, 0.5);
-	}
-	@include media-min(740) {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 38%;
-	}
-	@include media-min(1169) {
-		width: 444px;
-	}
+// YOUR STYLES HERE <---------
 
-	h1 {
-		font-weight: bold;
-		font-size: 1.618em;
-		font-family: Lato, $sans-font-stack;
-		@extend %is-uppercase;
-		color: shade($white, 62);
-		line-height: $base-line-height;
-		margin-bottom: 0;
-	}
-	p {
-		font-family: Lato, $sans-font-stack;
-		margin-top: 1.35em;
-		color: shade($white, 62);
-	}
-}
-	.sidebar__logo {
-		display: inline-block;
-		margin-bottom: 1.3em;
-		text-decoration: none;
-		
-		&, .body {
-			width: 32px;
-			height: 40px;
-		}
-	}
-	// .sidebar__meta {
-	// 	margin-top: 1.618em;
-	// }
-.content {
-	padding-top: em(38);
-	padding-bottom: em(42);
-	
-	@include media-min-max(0, 599) {
-		font-size: 90%;
-	}
-	@include media-min-max(600, 739) {
-		font-size: 110%;
-	}
-	@include media-min(740) {
-		width: 62%;
-		margin-left: 38%;
-	}
-	@include media-min-max(740, 795) {
-		font-size: 80%;
-	}
-	@include media-min(1169) {
-		width: inherit;
-		margin-left: 444px;
-		
-		& > * {
-			max-width: 725px;
-		}
-	}
-
-	p {
-		text-align: justify;
-		hyphens: auto;
-	}
-}
-.content--headstart {
-	background-color: #179F9F;
-}
-	article {
-		&:not(:last-child) {
-			margin-bottom: 3.6em;
-		}
-		.meta {
-			padding-top: .3em;
-		}
-		header {
-			margin-bottom: 1.8em;
-		}
-	}
 
 // Print ----------------------------------------------------------------------
 //

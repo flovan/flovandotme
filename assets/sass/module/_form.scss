@@ -8,11 +8,15 @@ label {
 	padding: 0;
 
 	&:last-of-type,
-	&:last-child { margin-bottom: 0; }
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 
 label {
-	input { @include rem(margin-top, 5); }
+	input {
+		@include rem(margin-top, 5);
+	}
 }
 
 // NOTE
@@ -23,21 +27,14 @@ label {
 
 input,
 textarea {
-	// @include rem(padding, 10, 20, 8);
-	// border: 1px solid $black;
-	// background: $white;
-	// @include rem(border-radius, 5);
-	padding: 0;
-	border: none;
-	background: none;
-	font-family: Lato, $sans-font-stack;
+	@include rem(padding, 10, 20, 8);
+	border: 1px solid $black;
+	background: $white;
+	@include rem(border-radius, 5);
+	font-family: $font-stack;
 	color: $black;
-	line-height: $base-line-height;
-	outline: none;
-	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-rendering: optimizeLegibility;
+	line-height: 1.5;
+	@extend %is-antialiased;
 	
 	&:focus {
 		background-color: transparent;
@@ -50,21 +47,5 @@ textarea {
 ::-moz-placeholder,
 ::-webkit-placeholder,
 .-placeholder {
-	color: shade($white, 24);
-}
-
-// Specifics
-
-.searchform {
-	position: relative;
-	margin-top: -0.15em;
-	input {
-		width: 100%;
-		margin-left: 2.618em;
-	}
-	.icon--search {
-		position: absolute;
-		top: 0.2em;
-		left: 0;
-	}
+	color: #888;
 }

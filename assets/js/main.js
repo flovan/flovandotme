@@ -2,14 +2,19 @@
 
 'use strict';
 
-// underscore is bundled in with ender, so just require it
+// Underscore is bundled in with ender, so just require it
+// Comment out this line when using the separated Underscore file,
+// eg. when using jQuery
 var _ = require('underscore');
 
 // Document -------------------------------------------------------------------
 
-$.domReady(function() {
+// When using jQuery, use
+// $(document).ready(function () {
 
-	log('_## Document ready_');
+$.domReady(function () {
+
+	console.log('## Document ready');
 
 	// VARS -------------------------------------------------------------------
 	//
@@ -17,17 +22,10 @@ $.domReady(function() {
 	var
 		$window = $(window),
 		$body = $('body')
-
 	;
 
 	// ACTIONS ----------------------------------------------------------------
 	//
-	
-	WebFont.load({
-		google: {
-			families: ['Lato:normal,b', 'Merriweather:normal,i,b,bi,900']
-		}
-	});
 
 	// $elem.on('something', doSomething);
 

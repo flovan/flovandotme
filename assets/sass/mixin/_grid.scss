@@ -11,7 +11,6 @@
 	
 	display: inline-block;
 	vertical-align: top;
-	width: 100%;
 
 	@include media-min ($break) {
 		$perc: (100 / $total-columns * $columns) * 1%;
