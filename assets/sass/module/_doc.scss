@@ -16,10 +16,10 @@ html {
 // Global styles
 html,
 body {
-    font-family: $font-stack;
+    font-family: $mono-custom-stack;
     line-height: $base-line-height;
     background-color: $white;
-    color: $black;
+    color: $mine-shaft;
 	height: 100%;
 	@extend %is-antialiased;
 }

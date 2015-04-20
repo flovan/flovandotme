@@ -1,6 +1,10 @@
 // Accent colors --------------------------------------------------------------
 
-
+$picasso: #FFF293;
+$anakiwa: #93BCFF;
+$mine-shaft: #252525;
+$gray: #7F7F7F;
+$porcelain: #EEEFF0;
 
 // Greys ----------------------------------------------------------------------
 
@@ -32,4 +36,7 @@ $reporting-info-light: #DAE5F0;
 //
 // http://www.jordanm.co.uk/tinytype
 
-$font-stack: Helvetica Neue, Helvetica, Verdana, Roboto, sans-serif;
+$mono-stack: monospace;
+$mono-custom-stack: Cousine, $mono-stack;
+$title-stack: Helvetica Neue, Helvetica, Verdana, Roboto, sans-serif;
+$title-custom-stack: Campton, $title-stack;

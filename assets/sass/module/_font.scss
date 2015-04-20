@@ -2,13 +2,47 @@
 //
 // !! Add custom fonts to the font-stack in sass/base/config_site
 
-/*
 @font-face {
-	font-family: 'MyWebFont';
-	src: url('webfont.eot'); // IE9 Compat Modes
-	src: url('webfont.eot?#iefix') format('embedded-opentype'), // IE6-IE8
-	     url('webfont.woff') format('woff'), // Modern Browsers
-	     url('webfont.ttf')  format('truetype'), // Safari, Android, iOS
-	     url('webfont.svg#svgFontName') format('svg'); // Legacy iOS
+    font-family: 'Cousine';
+    src: url('../fonts/cousine-regular.woff2') format('woff2'),
+         url('../fonts/cousine-regular.woff') format('woff'),
+         url('../fonts/cousine-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
 }
-*/
+
+@font-face {
+	font-family: 'Cousine';
+	src: url('../fonts/cousine-italic.woff2') format('woff2'),
+		 url('../fonts/cousine-italic.woff') format('woff'),
+		 url('../fonts/cousine-italic.ttf') format('truetype');
+	font-weight: 400; // normal
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Cousine';
+	src: url('../fonts/cousine-bold.woff2') format('woff2'),
+		 url('../fonts/cousine-bold.woff') format('woff'),
+		 url('../fonts/cousine-bold.ttf') format('truetype');
+	font-weight: 700; // bold
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Cousine';
+	src: url('../fonts/cousine-bolditalic.woff2') format('woff2'),
+		 url('../fonts/cousine-bolditalic.woff') format('woff'),
+		 url('../fonts/cousine-bolditalic.ttf') format('truetype');
+	font-weight: 700; // bold
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Campton';
+	src: url('../fonts/campton-bold.woff2') format('woff2'),
+		 url('../fonts/campton-bold.woff') format('woff'),
+		 url('../fonts/campton-bold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
