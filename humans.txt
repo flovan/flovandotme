@@ -1,0 +1,18 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Florian -- Design/Development -- @prplps
+
+# THANKS
+
+    HTML5 Boilerplate -- for the base of my own template
+    Trent Walton -- for his great article on Flexible Foundations >> http://trentwalton.com/2013/01/07/flexible-foundations/ <<
+    Jonathan T. Neal -- for his article on Favicons >> http://www.jonathantneal.com/blog/understand-the-favicon/ <<
+    Css Wizardry -- for the article on better image replacement >> http://csswizardry.com/2013/01/your-logo-is-still-an-image-and-so-is-mine/ <<
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    Normalize.css, jQuery, Modernizr, SlabText, html5shiv

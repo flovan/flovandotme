@@ -1,8 +1,2 @@
-#[flovandotme](http://flovan.me)
+#[flovandotme](http://flovan.me) V1 (2013)
 > My personal website.
-
-Made with [Headstart](http://headstart.io).
-To build, point the command line at the project folder and run:
-````
-hs build
-````
