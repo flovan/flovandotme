@@ -1,0 +1,12 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Florian Vanthuyne -- owner, developer, designer -- @prplps
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    SCSS, Normalize.css
+    jQuery, Ender, Respond, Selectivizr, Fastclick, Underscore, Log, ie-behavior

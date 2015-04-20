@@ -1,0 +1,70 @@
+// Form Module ----------------------------------------------------------------
+//
+// Not as much a module, but separated as one to group all form styles
+
+fieldset,
+label {
+	@include rem(margin, 0, 0, strip($base-font-size));
+	padding: 0;
+
+	&:last-of-type,
+	&:last-child { margin-bottom: 0; }
+}
+
+label {
+	input { @include rem(margin-top, 5); }
+}
+
+// NOTE
+// 
+// This selector will affect <input type="submit"> elements.
+// Please use <button type="submit"></button> instead, unless
+// you aren't planning on using any HTML5 input types
+
+input,
+textarea {
+	// @include rem(padding, 10, 20, 8);
+	// border: 1px solid $black;
+	// background: $white;
+	// @include rem(border-radius, 5);
+	padding: 0;
+	border: none;
+	background: none;
+	font-family: Lato, $sans-font-stack;
+	color: $black;
+	line-height: $base-line-height;
+	outline: none;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	
+	&:focus {
+		background-color: transparent;
+	}
+}
+
+// Style placeholder text
+// Includes class that the IE shim generates
+::placeholder,
+::-moz-placeholder,
+::-webkit-placeholder,
+.-placeholder {
+	color: shade($white, 24);
+}
+
+// Specifics
+
+.searchform {
+	position: relative;
+	margin-top: -0.15em;
+	input {
+		width: 100%;
+		margin-left: 2.618em;
+	}
+	.icon--search {
+		position: absolute;
+		top: 0.2em;
+		left: 0;
+	}
+}

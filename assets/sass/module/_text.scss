@@ -1,0 +1,176 @@
+// Rhythm set with
+// 
+// http://modularscale.com/scale/?px1=16&px2=42&ra1=1.618&ra2=0
+// 
+
+// Selection color ------------------------------------------------------------
+
+::-moz-selection {
+    background: shade($white, 10);
+    text-shadow: none;
+}
+
+::selection {
+    background: $black;
+    text-shadow: none;
+}
+
+// Headings -------------------------------------------------------------------
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	// Push down following content here
+	margin: 0 0 0.383em;
+
+	&:last-of-type:last-child {
+		margin-bottom: 0; 
+	}
+	
+	line-height: 1.25;
+	font-weight: 900;
+
+	// Optional: Push in headings for a better hand-held reading experience
+	// @include media-max($default-column-breakpoint) { padding-left: em(10); padding-right: em(10); }
+
+	a {
+		color: $document-text-color;
+		text-decoration: none;
+		border-radius: .2em;
+		transition: background .15s ease-out;
+		
+		&:hover {
+			background-color: shade($white, 5);
+		}
+	}
+}
+
+h1 {
+	font-size: 2.625em;
+}
+h2 {
+	font-size: 2.618em;
+}
+h3 {
+	font-size: 1.622em;
+}
+h4 {
+	font-size: 1.618em;
+}
+h5,
+h6 {
+	font-size: 1.003em;
+}
+
+// Paragraphs -----------------------------------------------------------------
+
+p {
+	// Push down following content here
+	@include rem(margin, 0, 0, 30);
+	
+	&:last-of-type:last-child {
+		margin-bottom: 0;
+	}
+	
+	// Optional: Push in headings for a better hand-held reading experience
+	// @include media-max($default-column-breakpoint) { padding-left: em(10); padding-right: em(10); }
+}
+
+// Meta -----------------------------------------------------------------------
+
+.meta {
+	font-family: Lato, $sans-font-stack;
+	@extend %is-uppercase;
+
+	ul {
+		padding: 0;
+		margin: 0;
+	}
+	li {
+		padding: 0;
+		list-style-type: none;
+		display: inline;
+	}
+	li,
+	.tag {
+		&:not(:last-child) {
+			margin-right: .5em;
+		}
+	}
+}
+	.meta,
+	.tag {
+		color: shade($white, 38);
+	}
+	.tag {
+		display: inline-block;
+		text-decoration: none;
+		transition: background .15s ease-out, color .15s ease-out;
+		
+		&:hover {
+			background-color: shade($white, 5);
+			color: shade($white, 62);
+			border-radius: .2em;
+		}
+		&:before { content: '#'; }
+	}
+
+// Lists ----------------------------------------------------------------------
+
+ul {
+	// Justifies bullets to left without additional spacing
+	margin: 0;
+	padding: 0;
+
+	// Push down following content here
+	// @include rem(margin, 0, 0, 30);
+
+	&:last-of-type:last-child {
+		margin-bottom: 0;
+	}
+
+	li {
+		list-style-type: none;
+		position: relative;
+		padding-left: 1.618em;
+
+		&:before {
+			position: absolute;
+			top: 0.618em;
+			left: 0;
+			display: block;
+			content: '';
+			@include triangle(6px, 3px, up, rgba($document-text-color, .5));
+		}
+		&:after {
+			position: absolute;
+			top: 0.85em;
+			left: 0;
+			display: block;
+			content: '';
+			@include triangle(6px, 3px, down, rgba($document-text-color, .5));
+		}
+	}
+}
+
+// Links ----------------------------------------------------------------------
+
+$link-color: $document-text-color;
+p a, ul a {
+	background-image: linear-gradient(to bottom, rgba($document-text-color,0) 50%, rgba($document-text-color,0.5) 50%);
+	background-repeat: repeat-x;
+	background-size: 2px 2px;
+	background-position: 0 1em;
+	text-shadow: -1px 0 white, 1px 0 white, 0 -1px white, 0 1px white;
+	text-decoration: none;
+	color: $link-color;
+
+	&:hover {
+		color: shade($link-color, 20);
+	}
+}
+
+

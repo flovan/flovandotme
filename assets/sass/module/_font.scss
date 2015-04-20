@@ -1,0 +1,14 @@
+// Font-Face ------------------------------------------------------------------
+//
+// !! Add custom fonts to the font-stack in sass/base/config_site
+
+@font-face {
+	font-family: 'icon';
+	src:url('../fonts/icon.eot?-ceclfl');
+	src:url('../fonts/icon.eot?#iefix-ceclfl') format('embedded-opentype'),
+		url('../fonts/icon.woff?-ceclfl') format('woff'),
+		url('../fonts/icon.ttf?-ceclfl') format('truetype'),
+		url('../fonts/icon.svg?-ceclfl#icon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
