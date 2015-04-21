@@ -16,16 +16,19 @@ html {
 // Global styles
 html,
 body {
-    font-family: $mono-custom-stack;
     line-height: $base-line-height;
     background-color: $white;
-    color: $mine-shaft;
-	height: 100%;
+    color: $document-body-color;
 	@extend %is-antialiased;
 }
 
 body {
+	font-family: $mono-stack;
 	font-size: 100%;
+
+	&.doc-fonts-loaded {
+		font-family: $mono-custom-stack;
+	}
 }
 
 // MS viewport fix

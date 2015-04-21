@@ -1,6 +1,81 @@
 {{> layout/header}}
+{{> partials/svg}}
 
-<!-- Your HTML here -->
-<p>Welcome to Headstart, off you go!</p>
+<main>
+    <header class="header">
+        <div class="header__wrapper">
+            <a class="header__logo" href="index.html">
+                <svg role="img" title="Flovan"><use xlink:href="#flovan-logo"></use></svg>
+            </a>
+            <h1>I am a multidiciplinary creative and front-end developer.</h1>
+            <p class="header__links"><a href="#">Github</a> &mdash; <a href="#">Behance</a> &mdash; <a href="#">Twitter</a></p>
+        </div>
+    </header>
+    <section class="about">
+        <div class="about__photo lazy-load" data-bg-src="assets/images/about-photo-office.jpg"></div>
+        <div class="about__wrapper">
+            <h2>About</h2>
+            <p>I was born and raised in a rural city right below Ghent, Belgium, where I was spoonfed tinkering with technology from early on. While growing up, the Sega and Windows 98 machine at home shaped my interest in computers. During my time at secondary school, I started experimenting with Flash and wrote scripts in TI-BASIC to automate Math calculations on my calculator (and store course notes form time to time). After mistakingly trying on chemistry at a university, I ended up studying and graduating at <a href="#">Devine</a>. Right now, I am passionately following up on web standards, technologies and methodologies and build fast and reliable experiences at <a href="#">Adagio Agency</a>, a digital advertising and consulting agency.</p>
+        </div>
+    </section>
+    <section class="content">
+        <div class="content__wrapper">
+            <div class="content__pieces">
+                <article class="content__projects">
+                    <h2>Projects</h2>
+                    <ul>
+                        <li><a href="#">Headstart</a> &mdash; A preconfigured, automated front-end workflow</li>
+                    </ul>
+                </article>
+                <article class="content__sites">
+                    <h2>Sites I worked on</h2>
+                    <ul>
+                        <li><a href="#">Adagio Agency</a> &mdash; Front-end, CMS integration</li>
+                        <li><a href="#">Healthy Solutions</a> &mdash; Design, Front-end</li>
+                        <li><a href="#">Young Noah</a> &mdash; Design, Front-end, CMS integration</li>
+                        <li><a href="#">iDocta</a> &mdash; Front-end</li>
+                        <li><a href="#">VMD</a> &mdash; Front-end</li>
+                    </ul>
+                </article>
+                <article class="content__principles">
+                    <h2>Principles</h2>
+                    <ul>
+                        <li>Gracefull degradation over progressive enhancement; code for the best-case scenario</li>
+                        <li>Be semantic</li>
+                        <li>Jank-free results, always</li>
+                        <li>Pixel-perfect is a thing of the past; strive for fluid-perfection</li>
+                        <li>The devil is in the details</li>
+                        <li>&hearts; open-source</li>
+                    </ul>
+                </article>
+                <article class="content__blurbs">
+                    <h2>Blurbs</h2>
+                    <p>A personal collection of links, snippets and thoughts.</p>
+                    <ul>
+                        <li><a href="#">UX Motion Choreography</a></li>
+                        <li><a href="#">Random javascript tricks</a></li>
+                        <li><a href="#">There is no fold</a></li>
+                    </ul>
+                    <p><a href="#">Read them all</a></p>
+                </article>
+            </div>
+            <div class="content__instagram">
+                <a class="instagram__latest" href="#"><img src="http://placehold.it/880x880" alt=""></a>
+                <a class="instagram__older" href="#"><img src="http://placehold.it/880x880" alt=""></a>
+                <a class="instagram__oldest" href="#"><img src="http://placehold.it/880x880" alt=""></a>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer__contact">
+            <h2>Contact Me</h2>
+            <p><a href="#">Shoot me an email</a> about anything!</p>
+        </div>
+        <div class="footer__profiles">
+            <h2>Find me online</h2>
+            <p><a href="#">Github</a> &mdash; <a href="#">Behance</a> &mdash; <a href="#">Twitter</a> &mdash; <a href="#">Dribbble</a> &mdash; <a href="#">LinkedIn</a> &mdash; <a href="#">Instagram</a></p>
+        </div>
+    </footer>
+</main>
 
 {{> layout/footer}}

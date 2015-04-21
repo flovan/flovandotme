@@ -15,8 +15,8 @@
 // Module imports -------------------------------------------------------------
 
 //@import 'module/container';
-//@import 'module/font';
-//@import 'module/text';
+@import 'module/font';
+@import 'module/text';
 //@import 'module/reporting';
 //@import 'module/form';
 //@import 'module/button';
@@ -27,9 +27,166 @@
 
 // Styles ---------------------------------------------------------------------
 
+.lazy-load[data-bg-src],
+.lazy-load[data-bg-srcset] {
+	transition: background-image 1s cubic-bezier(0.305, 1, 0.565, 1.000);
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==);
+}
 
-// YOUR STYLES HERE <---------
+img.lazy-load {
+	transition: opacity 1s cubic-bezier(0.305, 1, 0.565, 1.000);
+	opacity: 0;
 
+	&.has-loaded {
+		opacity: 1;
+	}
+}
+
+/* main {} */
+
+.header:before,
+.content:before {
+	content: '';
+	position: absolute;
+    top: 0;
+	height: 100%;
+	width: 61.8%;
+	background-image: url(../images/wavy-pattern.png);
+	background-attachment: fixed;
+
+	@include highres() {
+		background-image: url(../images/wavy-pattern@2x.png);
+		background-size: 280px 232px;
+	}
+}
+
+.header {
+    position: relative;
+    padding-right: 100px;
+
+    &:before {
+        right: 0;
+    }
+}
+
+    .header__wrapper {
+        position: relative;
+        z-index: 1;
+        padding: 100px 50px 100px 100px;
+        width: 61.8%;
+    }
+
+        .header__logo {
+            display: block;
+            margin-bottom: 90px;
+
+            &, svg {
+                height: 60px;
+                width: 47px;
+            }
+
+            svg {
+                fill: $gray;
+                transition: fill .15s ease-out;
+            }
+
+            &:hover {
+                svg {
+                    fill: $document-body-color;
+                    transition-duration: .1s;
+                }
+            }
+        }
+
+.about {
+    position: relative;
+    padding-left: 61.8%;
+}
+
+    .about__photo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 61.8%;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .about__wrapper {
+        padding: 100px 100px 100px 50px;
+    }
+
+.content {
+	position: relative;
+
+	&:before {
+        right: 19.1%;
+	}
+}
+
+	.content__wrapper {
+		@extend %is-cf;
+	}
+
+		.content__pieces {
+			position: relative;
+	        z-index: 1;
+			width: 61.8%;
+			float: left;
+			padding: 100px 50px 100px 100px;
+
+			article:not(:last-child) {
+				margin-bottom: 100px;;
+			}
+		}
+
+		.content__instagram {
+			position: relative;
+	        z-index: 1;
+			width: 38.1%;
+			float: right;
+			@extend %is-cf;
+
+			img {
+				display: block;
+				max-width: 100%;
+				height: auto;
+			}
+		}
+
+			.instagram__older {
+				float: left;
+				width: 50%;
+			}
+
+			.instagram__oldest {
+				float: right;
+				width: 50%;
+				clear: left;
+			}
+
+footer {
+	padding: 100px;
+	@extend %is-cf;
+	background-color: $gray;
+
+	&,
+	h2,
+	a {
+		color: $white;
+	}
+}
+
+	.footer__contact {
+		width: 38.2%;
+		float: left;
+	}
+
+	.footer__profiles {
+		width: 61.8%;
+		float: right;
+	}
 
 // Print ----------------------------------------------------------------------
 //
