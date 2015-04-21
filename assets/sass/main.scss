@@ -44,30 +44,30 @@ img.lazy-load {
 
 /* main {} */
 
-//.header:before,
-.header__interactive div,
+.header:before,
 .content:before {
 	content: '';
 	position: absolute;
     top: 0;
 	height: 100%;
 	width: 61.8%;
-	background-image: url(../images/wavy-pattern.png);
 	background-attachment: fixed;
+	background-image: url(../images/wavy-pattern.png);
 
 	@include highres() {
 		background-image: url(../images/wavy-pattern@2x.png);
-		background-size: 280px 232px;
+		background-size: 279px 231px;
 	}
 }
 
 .header {
     position: relative;
     margin-right: 100px;
+	overflow: hidden;
 
-    /* &:before {
+    &:before {
         right: 0;
-    } */
+    }
 }
 
     .header__wrapper {
@@ -98,14 +98,6 @@ img.lazy-load {
                 }
             }
         }
-
-	.header__interactive {
-		position: absolute;
-		top: 0;
-		right: 0;
-		height: 100%;
-		width: 61.8%;
-	}
 
 .about {
     position: relative;
