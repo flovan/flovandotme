@@ -1,21 +1,27 @@
 import React from 'react';
-import { RouteHandler } from 'react-router';
+import { Router, RouteHandler } from 'react-router';
 
-var Root = React.createClass({
-	render: function () {
+import Head from './Head';
+
+class Root extends React.Component {
+	static propTypes = {
+		children: React.PropTypes.element.isRequired
+	}
+
+    // constructor(props, context) {
+    //     super(props, context);
+    // }
+
+	render() {
 		return (
 			<html>
-				<head>
-					<title>{this.props.title}</title>
-				</head>
+				<Head title="testing this title" />
 				<body>
-					<h1>Test</h1>
+					{React.cloneElement(this.props.children)}
 				</body>
 			</html>
 		);
-	}
-});
+    }
+}
 
 export default Root;
-
-//<RouteHandler {...this.props} />

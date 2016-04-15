@@ -1,11 +1,11 @@
 import React from 'react';
 
 class Home extends React.Component {
-    constructor(props, context) {
-        super(props, context);
-    }
+    // constructor(props, context) {
+    //     super(props, context);
+    // }
 
-	render() {
+	render(props) {
 		return (
 			<main>
 				<h1>Flovan</h1>
