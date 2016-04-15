@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -9,10 +10,7 @@ const paths = [
 
 module.exports = {
     entry: {
-        'main': [
-            'webpack-hot-middleware/client',
-            './core/index.js'
-        ],
+        'main': './core/index.js'
     },
 
     module: {
@@ -28,8 +26,13 @@ module.exports = {
                 loader: 'file'
             }, {
                 test: /\.js$/,
-                loader: 'babel',
-				exclude: /node_mdules/,
+				include: [
+					path.resolve(__dirname, 'core')
+				],
+                loaders: [
+					'react-hot',
+					'babel-loader'
+				],
                 query: {
                     presets: ['react', 'es2015', 'stage-0'],
                     plugins: isProd ? [] : [
@@ -44,8 +47,7 @@ module.exports = {
                             }],
                         }],
                     ],
-                },
-                include: /core/
+                }
             }
         ]
     },
@@ -61,7 +63,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new StaticSiteGeneratorPlugin('main', paths, null),
-        new ExtractTextPlugin('styles.css'),
+        // new ExtractTextPlugin('styles.css'),
     ].concat(isProd ? [
         new webpack.optimize.UglifyJsPlugin(),
         new webpack.optimize.DedupePlugin(),
