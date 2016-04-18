@@ -24,18 +24,8 @@ export default (locals, callback) => {
 	const location = history.createLocation(locals.path);
 
 	match({ routes, location }, (error, redirectLocation, renderProps) => {
-		// callback(null, template(
-		// 	ReactDOMServer.renderToString(<RouterContext {...renderProps} />)
-		// ));
-
-		if (error) {
-			console.log('500 error:', error.message, location);
-		} else if (renderProps) {
-			callback(null, template(
-				ReactDOMServer.renderToString(<RouterContext {...renderProps} />)
-			));
-		} else {
-			console.log('404 Not Found.', location);
-		}
+		callback(null, template(
+			ReactDOMServer.renderToString(<RouterContext {...renderProps} />)
+		));
 	});
 };
