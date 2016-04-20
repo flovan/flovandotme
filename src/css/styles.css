@@ -1,0 +1,14 @@
+:root {
+  --purple: #673c90;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  text-align: center;
+  font-size: 100%;
+  color: var(--purple);
+}
