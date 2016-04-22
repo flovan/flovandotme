@@ -1,0 +1,110 @@
+// Multi-Select module --------------------------------------------------------
+
+select[multiple] {
+	@extend .w100;
+	@extend .px1;
+	@extend .pyh;
+}
+
+.multi-select {
+	@extend .por;
+	padding-top: .25em;
+	padding-bottom: .25em;
+	@extend .px1;
+	border: rem(1) solid rgba($doc-color, .2);
+	outline: none;
+	cursor: text;
+	@extend .bgc-white;
+
+	&.is-focused {
+		border-color: color('rio-grande');
+
+		&:after {
+			transform: rotate(180deg) translateY(.2em);
+			-ms-transform: rotate(180deg) translateY(.2em);
+		}
+	}
+
+	&:after {
+		content: '';
+		@extend .poa;
+		@extend .centery;
+		@extend .r1;
+		@include triangle(.6em, .4em, down, color('mobster'));
+	}
+}
+
+	.multi-select__field {
+		border: none;
+		@extend .dib;
+		margin-top: .25rem;
+		margin-bottom: .25rem;
+		padding: 0;
+	}
+
+	.multi-select__label {
+		@extend .poa;
+		@extend .l0;
+		@extend .px1;
+		@extend .centery;
+		@extend .dib;
+	}
+
+	.multi-select__menu {
+		@extend .poa;
+		@extend .l0;
+		@extend .z1;
+		@extend .w100;
+		overflow-y: auto;
+		overflow-x: hidden;
+		-webkit-overflow-scrolling: touch;
+		border: rem(1) solid color('mobster');
+		box-shadow:
+			0 rem(1) rem(2) rgba(color('black'), .1),
+			0 rem(2) rem(3) rgba(color('black'), .1)
+		;
+	}
+
+	.multi-select__option {
+		@extend .db;
+		@extend .w100;
+		@extend .tal;
+		border-radius: 0;
+		background-color: color('white');
+
+		&:not(:last-child) {
+			border-bottom: rem(1) solid color('off-white');
+		}
+
+		&:hover {
+			@extend .c-rio-grande;
+		}
+
+		&.is-focused {
+			@extend .bgc-off-white;
+		}
+	}
+
+	.multi-select__tag {
+		@extend .dib;
+		@extend .pl1;
+		padding-right: .5rem;
+		@extend .pyh;
+		margin-top: .25rem;
+		margin-bottom: .25rem;
+		@extend .mrh;
+		@extend .bgc-rio-grande;
+		@extend .c-white;
+		@extend .fwb;
+		@extend .lh1;
+	}
+
+	.multi-select__remove-btn {
+		@extend .mlh;
+		color: rgba($doc-color, .5);
+
+		&:hover,
+		&:focus {
+			color: $reporting-error;
+		}
+	}

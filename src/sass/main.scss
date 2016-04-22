@@ -1,0 +1,67 @@
+// Import core ----------------------------------------------------------------
+
+@import 'core/functions';
+@import 'core/mixin';
+@import 'core/config';
+
+
+
+// Set up document ------------------------------------------------------------
+
+@import 'module/reset';
+
+// html,
+// body {
+// 	height: 100%;
+// }
+
+html {
+	box-sizing: border-box;
+	font-family: $serif-font-stack;
+	font-size: 100%;
+	line-height: $doc-line-height;
+	background-color: $doc-bg-color;
+}
+
+body {
+	color: $doc-color;
+}
+
+
+
+// Import modules -------------------------------------------------------------
+
+// @import 'module/font';
+@import 'module/text';
+// @import 'module/form';
+// @import 'module/reporting';
+// @import 'module/utility';
+// @import 'module/button';
+// @import 'module/wrapper';
+// @import 'module/lazy-image';
+
+
+
+// Common styles --------------------------------------------------------------
+
+hr {
+	height: rem(1);
+	border: none;
+	background-color: rgba($doc-color, .1);
+	margin: 0 0 1em;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.no-js__wrapper {
+	z-index: 9999;
+	background-color: rgba(0, 0, 0, .8);
+}
+
+// Print ----------------------------------------------------------------------
+//
+// Inline to avoid the request
+
+@import 'module/print';

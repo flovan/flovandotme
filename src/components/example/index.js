@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './example.css';
+// import styles from './example.css';
 
 class Example extends React.Component {
 	handleClick (e) {
@@ -9,7 +9,7 @@ class Example extends React.Component {
 
 	render () {
 		return (
-			<div className={styles.example}>
+			<div>
 				<h2>Example component</h2>
 				<p>
 					<button onClick={this.handleClick}>Click me</button>
@@ -17,6 +17,17 @@ class Example extends React.Component {
 			</div>
 		)
 	}
+
+	// render () {
+	// 	return (
+	// 		<div className={styles.example}>
+	// 			<h2>Example component</h2>
+	// 			<p>
+	// 				<button onClick={this.handleClick}>Click me</button>
+	// 			</p>
+	// 		</div>
+	// 	)
+	// }
 }
 
 export default Example;

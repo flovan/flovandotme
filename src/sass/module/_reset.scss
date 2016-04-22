@@ -1,0 +1,113 @@
+// Based on https://10up.github.io/sanitize.css/
+
+// Normalization & Resets -----------------------------------------------------
+
+body {
+	margin: 0;
+}
+
+main,
+details,
+summary {
+	display: block;
+	// In order:
+	// Android 4.3-, Internet Explorer 11-, Windows Phone 8.1+
+	// Edge 12+, Firefox 40+, Internet Explorer 11-, Windows Phone 8.1+
+	// Firefox 40+, Internet Explorer 11-, Windows Phone 8.1+
+}
+
+input {
+	// &[type="number"] {
+	// 	width: auto; // Firefox 36+
+	// }
+
+	&[type="search"] {
+		-webkit-appearance: textfield; // Chrome 45+, Safari 9+
+
+		&::-webkit-search-cancel-button,
+		&::-webkit-search-decoration {
+			-webkit-appearance: none; // Chrome 45+, Safari 9+
+		}
+	}
+}
+
+pre,
+textarea {
+	overflow: auto;
+	// In order:
+	// Internet Explorer 11-
+	// Edge 12+, Internet Explorer 11-
+}
+
+html,
+input,
+textarea,
+button {
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-style: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+}
+
+button {
+	overflow: visible; // Internet Explorer 11-
+}
+
+table {
+	border-collapse: 0;
+	border-spacing: 0;
+	width: 100%;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+
+p > svg,
+span > svg,
+button > svg {
+	width: 1em;
+	height: 1em;
+	vertical-align: middle;
+}
+
+
+
+// Touch fix ------------------------------------------------------------------
+// http://msdn.microsoft.com/en-us/library/ie/hh772044(v=vs.85).aspx
+
+a,
+input,
+button {
+	-ms-touch-action: none !important;
+	touch-action: none !important;
+}
+
+
+
+// Universal inheritance ------------------------------------------------------
+
+*,
+*:after,
+*:before {
+	box-sizing: inherit;
+}

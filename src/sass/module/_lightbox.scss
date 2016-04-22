@@ -1,0 +1,26 @@
+// Lightbox module ------------------------------------------------------------
+
+// .lightbox {}
+
+	.lightbox__zoom-in-btn,
+	.lightbox__zoom-out-btn,
+	.lightbox__prev-btn,
+	.lightbox__next-btn {
+		&:focus svg,
+		&:hover svg {
+			fill: color('curious-blue');
+		}
+	}
+
+	.lightbox__content {
+		overflow: hidden;
+	}
+
+.lightbox-trigger {
+	&:focus,
+	&:hover {
+		svg {
+			fill: color('rio-grande');
+		}
+	}
+}

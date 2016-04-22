@@ -1,0 +1,42 @@
+@import 'core/config';
+
+// Lazy Image Module ----------------------------------------------------------
+
+.lazy-wrapper {
+	background-color: color('off-white');
+
+	&:not(.has-loaded):not(.has-failed) {
+		background-image: url(../images/lazy-spinner.gif);
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+
+	&.has-failed {
+		background-color: color('mobster');
+		background-image: url(../images/broken-image-icon.png);
+		background-size: 1.5rem 1.5rem;
+		background-repeat: no-repeat;
+		background-position: 1rem 1rem;
+	}
+
+	&.has-loaded {
+		background-color: transparent;
+	}
+}
+
+img.lazy {
+	opacity: 0;
+
+	&.has-loaded {
+		opacity: 1;
+	}
+}
+
+[data-bg-src],
+[data-bg-srcset] {
+	background: color('off-white') url(../images/lazy-spinner.gif) no-repeat center center;
+
+	&.has-loaded {
+		background-size: cover;
+	}
+}

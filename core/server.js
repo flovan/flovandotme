@@ -21,7 +21,7 @@ webpack(webpackConfig).watch({}, (err, stats) => {
         });
 
         let changedStyleModules = changedModules.filter((module) => {
-            return module.resource.match(/\.(css|less|sass)$/);
+            return module.resource.match(/\.(css|less|sass|scss)$/);
         });
 
         if (changedModules.length === changedStyleModules.length) {

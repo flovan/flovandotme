@@ -1,0 +1,95 @@
+// Modal module ---------------------------------------------------------------
+
+.modal-visible main {
+	@extend .por;
+	height: 100%;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.modal-container {
+	display: none;
+	background-color: rgba(color('black'), .8);
+
+	.modal-visible & {
+		z-index: 10;
+		display: block;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+}
+
+	.modal {
+		&[aria-hidden] {
+			display: none;
+			pointer-events: none;
+		}
+
+		&:not([aria-hidden]) {
+			max-width: rem(500);
+			transform: translateX(0);
+			-ms-transform: translateX(0);
+			transition-delay: .05s;
+		}
+	}
+
+	.modal__header {
+		font-size: rem(14);
+	}
+
+		.modal__close-btn {
+			&:not(.lh1) {
+				line-height: inherit;
+			}
+
+			&:hover,
+			&:focus {
+				color: $reporting-error;
+
+				svg {
+					fill: $reporting-error;
+				}
+			}
+		}
+
+// Modifiers ------------------------------------------------------------------
+
+.modal.modal--large {
+	max-width: rem(800);
+}
+
+.modal.modal--full {
+	max-width: rem(strip($container-max-width));
+}
+
+.modal.modal--lightbox {
+	max-width: 100%;
+
+	.modal__header {
+		border-bottom: rem(1) solid rgba(color('white'), .2);
+	}
+
+	.modal__footer {
+		border-top: rem(1) solid rgba(color('white'), .2);
+	}
+}
+
+.modal--reset,
+.modal--login,
+.modal--share,
+.modal--terms,
+.modal--course-nav {
+	.modal__header {
+		padding-right: 4rem;
+
+		@media (max-width: rem(bp('xxs') - 1, 16)) {
+			& small:first-child {
+				display: none;
+			}
+		}
+
+		@media (min-width: rem(bp('xxs'), 16)) {
+			padding-right: 10rem;
+		}
+	}
+}

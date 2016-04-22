@@ -1,0 +1,58 @@
+// Reporting Module -----------------------------------------------------------
+//
+// Easily setup Success, Error, Warning, and Info messages and lists
+
+$tintAmount: 85;
+
+.report {
+	color: $reporting-text;
+	border-top-style: solid;
+	border-top-width: rem(4);
+
+	ul,
+	ol {
+		padding-left: 1.5em;
+	}
+
+	a,
+	a:visited,
+	a:hover,
+	a:active {
+		color: $reporting-text;
+	}
+}
+
+ul.report,
+ol.report {
+	padding-left: 3em;
+}
+
+.report__icon {
+	svg {
+		display: block;
+	}
+}
+
+// Modifiers ------------------------------------------------------------------
+// Note: colors below are configured in _config_site.scss
+//
+
+.report--success {
+	border-top-color: $reporting-success;
+	background: tint($reporting-success, $tintAmount);
+}
+
+.report--info {
+	border-top-color: $reporting-info;
+	background: tint($reporting-info, $tintAmount);
+}
+
+.report--warning {
+	border-top-color: $reporting-warning;
+	background: tint($reporting-warning, $tintAmount);
+}
+
+.report--error {
+	border-top-color: $reporting-error;
+	background: tint($reporting-error, $tintAmount);
+}

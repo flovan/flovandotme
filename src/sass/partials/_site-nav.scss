@@ -1,0 +1,150 @@
+// Site Nav Module ------------------------------------------------------------
+
+.site-nav {
+	font-size: rem(14);
+
+	.has-sidebar & {
+		padding-right: rem(15);
+	}
+}
+
+	.site-nav__main-menu {
+		background-color: color('charcoal');
+		background-color: rgba(color('charcoal'), .9);
+		background: linear-gradient(to bottom, color('charcoal'), rgba(color('charcoal'), .9));
+		box-shadow:
+			0 rem(1) rem(2) rgba(color('black'), .1),
+			0 rem(2) rem(3) rgba(color('black'), .1)
+		;
+	}
+
+	.site-nav__logo {
+		width: rem(150);
+		height: rem(34);
+		azimuth: right;
+
+		svg {
+			fill: color('off-white');
+			transition: fill .2s $easeOutCubic;
+		}
+
+		&:hover svg,
+		&:focus svg {
+			fill: color('rio-grande');
+			transition-duration: .1s;
+			transition-timing-function: $easeInOutSine;
+		}
+	}
+
+	.site-nav__button {
+		@extend .por;
+		@extend .c-white;
+		@extend .fwb;
+		transition: color .2s $easeOutCubic, padding .2s $easeOutCubic;
+
+		&:after {
+			content: '';
+			@extend .poa;
+			@extend .l0;
+			@extend .b0;
+			@extend .w100;
+			height: 0;
+			@extend .bgc-rio-grande;
+			transition:
+				height .2s $easeOutCubic,
+				background-color .2s $easeOutCubic
+			;
+		}
+
+		&.is-active:after {
+			height: .2em;
+			@extend .bgc-off-white;
+		}
+
+		&:hover,
+		&:focus {
+			@extend .c-rio-grande;
+
+			&:after {
+				height: .2em;
+			}
+
+			&,
+			&:after {
+				transition-duration: .1s;
+				transition-timing-function: $easeInOutSine;
+			}
+		}
+
+		.icon--search {
+			@extend .dib;
+			width: 1em;
+			height: 1em;
+			@extend .vat;
+		}
+
+		svg {
+			@extend .db;
+			@extend .vam;
+			fill: color('white');
+		}
+	}
+
+	.site-nav__menu {
+		@media (max-width: rem(bp('m') - 1, 16)) {
+			position: fixed;
+			top: 0;
+			left: 100%;
+			z-index: 2;
+			display: block;
+			height: 100%;
+			width: 100%;
+			padding-top: rem(54);
+			background-color: rgba(color('charcoal'), .9);
+			opacity: 0;
+			transition:
+				opacity .35s $easeOutCubic,
+				left .35s .35s $easeOutCubic
+			;
+
+			.is-active + & {
+				opacity: 1;
+				left: 0;
+				transition-duration: .25s, 0s;
+				transition-delay: 0s;
+
+				&,
+				& > ul {
+					transition-timing-function: $easeInOutSine;
+				}
+
+				& > ul {
+					transition-duration: .25s;
+					transform: translateX(0);
+					-ms-transform: translateX(0);
+				}
+			}
+
+			& > ul {
+				width: rem(350);
+				height: 100%;
+				float: right;
+				padding-right: $page-min-padding;
+				overflow-y: auto;
+				-webkit-overflow-scrolling: touch;
+				background-color: color('charcoal');
+				transform: translateX(100%);
+				-ms-transform: translateX(100%);
+				transition: transform .35s $easeOutCubic;
+			}
+
+			& > ul > li {
+				margin-right: rem(15);
+			}
+
+			.site-nav__button {
+				width: 100%;
+				text-align: left;
+			}
+		}
+	}

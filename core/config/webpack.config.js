@@ -8,30 +8,41 @@ const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 const ejs = require('ejs');
-const template = ejs.compile(fs.readFileSync(path.join(__dirname, '../../src/template.html'), 'utf-8'));
 
+const PRODUCTION = process.NODE_ENV === 'production';
 const config = require('./config');
 const routes = [
     '/',
     '/about'
 ];
 
+const template = ejs.compile(fs.readFileSync(path.resolve(process.cwd(), 'src/template.html'), 'utf-8'));
+const ExtractFrontCss = new ExtractTextPlugin('front', 'front.css');
 
 module.exports =  {
-    entry: path.join(__dirname, '../index.js'),
+    entry: {
+		'front.app': path.resolve(process.cwd(), 'core/index.js'),
+		'front.style': path.resolve(process.cwd(), 'src/sass/main.scss')
+	},
 
     output: {
-        filename: `${config.bundleName}.js`,
-        path: '/' + config.buildFolder,
+		filename: '[name].js',
+        chunkFilename: '[name].js',
+        path: path.resolve(process.cwd(), config.buildFolder),
         libraryTarget: 'umd'
+    },
+
+	resolve: {
+        extensions: ['', '.js', '.jsx', '.css', '.scss'],
     },
 
     module: {
         loaders: [{
-            test: /\.css$/,
-            loader: ExtractTextPlugin.extract('style', 'css?modules&sourceMap!postcss')
+            test: /\.scss$/,
+			include: /src\/sass/,
+            loader: ExtractFrontCss.extract('style', 'css!postcss!sass')
         }, {
-            test: /\.js$/,
+            test: /\.jsx?$/,
             include: /(core|src)/,
             loader: 'babel'
         }]
@@ -41,19 +52,25 @@ module.exports =  {
         return [
             autoprefixer({
                 browsers: ['> 1%', 'last 2 versions', 'IE 9']
-            }),
-            precss
+            })
         ];
     },
 
     plugins: [
-        new ExtractTextPlugin(`${config.bundleName}.css`, {
-            allChunks: true
-        }),
-        new StaticSiteGeneratorPlugin('main', routes, {
+        ExtractFrontCss,
+        new StaticSiteGeneratorPlugin('front.app', routes, {
             template: template
         })
-    ],
+    ].concat(PRODUCTION ? [
+		new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false,
+            },
+            mangle: true,
+            screw_ie8: true,
+        })
+	] : []),
 
     devtool: 'cheap-module-source-map'
 };

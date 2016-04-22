@@ -1,0 +1,120 @@
+// Selection color ------------------------------------------------------------
+
+// ::-moz-selection { background: #fff657; color: $doc-color; text-shadow: none; }
+// ::selection      { background: #fff657; color: $doc-color; text-shadow: none; }
+
+
+
+// Push down ------------------------------------------------------------------
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+ul,
+ol {
+	margin: 0;
+	margin-bottom: 1em;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+
+
+// Headings -------------------------------------------------------------------
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	font-family: $sans-font-stack;
+	line-height: 1.25;
+	word-break: break-word;
+}
+
+h1,
+.h1 {
+	font-size: em(45);
+}
+
+h2,
+.h2 {
+	font-size: em(26);
+}
+
+h3,
+.h3 {
+	font-size: em(22);
+}
+
+h4,
+.h4 {
+	font-size: rem(18);
+}
+
+h5,
+.h5 {
+	font-size: rem(16);
+}
+
+h6,
+.h6 {
+	font-size: rem(14);
+}
+
+
+
+// Lists ----------------------------------------------------------------------
+
+ul,
+ol {
+	padding: 0;
+}
+
+
+
+// Blockquote -----------------------------------------------------------------
+
+article blockquote {
+	padding-left: 1.4em;
+	border-left: rem(10) solid rgba($doc-color, .15);
+}
+
+
+
+// Links ----------------------------------------------------------------------
+
+a {
+	color: $doc-color;
+	outline: none;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
+}
+
+// Small ----------------------------------------------------------------------
+
+small,
+.small {
+	font-size: rem(13);
+}
+
+.smaller {
+	font-size: rem(14);
+}

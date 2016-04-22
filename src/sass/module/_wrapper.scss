@@ -1,0 +1,12 @@
+// Wrapper Module -------------------------------------------------------------
+
+.wrapper {
+    width: (100 - 2*strip($page-min-padding)) * 1%;
+    max-width: $container-max-width;
+}
+
+// Modifiers ------------------------------------------------------------------
+
+.wrapper--narrow {
+	max-width: (strip($container-max-width)/1.5) * 1px;
+}

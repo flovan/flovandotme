@@ -1,0 +1,128 @@
+//  Breadcrumbs Module --------------------------------------------------------
+
+.breadcrumb-bar {
+	background-color: rgba(color('mobster'), .9);
+	box-shadow:
+		0 rem(1) rem(2) rgba(color('black'), .1),
+		0 rem(2) rem(3) rgba(color('black'), .1)
+	;
+}
+
+.breadcrumbs {
+	counter-reset: flag;
+}
+
+	.breadcrumbs__item .button,
+	.breadcrumbs__overflow .styled-select {
+		&:after {
+			content: '';
+			@extend .poa;
+			@extend .t0;
+			right: -1rem;
+			@extend .z1;
+			/* 12 (text) + 2*8 (padding-y) + 2*1 (border) = 30 */
+			width: rem(29);
+			height: rem(29);
+			border: rem(1) solid transparent;
+			border-top-color: tint(color('mobster'), 40);
+			border-right-color: tint(color('mobster'), 40);
+			/*
+			(1^2 + 1^2)^0.5 = 1.414 (pythagoras theorem)
+			1/1.414 = 0.707
+			*/
+			transform: scale(0.707) rotate(45deg);
+			-ms-transform: scale(0.707) rotate(45deg);
+		}
+	}
+
+	.breadcrumbs__item {
+		&:nth-child(2) .button {
+			padding-left: 1.5rem;
+
+			&:before {
+				@extend .l0;
+			}
+		}
+
+		&:nth-child(n+3) .button {
+			padding-left: 3.5rem;
+
+			&:before {
+				@extend .l2;
+			}
+		}
+
+		&:last-child .button {
+			@extend .c-rio-grande;
+
+			&:before {
+				@extend .bgc-rio-grande;
+			}
+		}
+
+		&.is-collapsed {
+			display: none;
+		}
+
+		.button {
+			border-radius: 0;
+			font-size: rem(11);
+			letter-spacing: .03em;
+			padding-top: .5rem;
+			padding-bottom: .6rem;
+
+			&:hover,
+			&:focus {
+				@extend .c-rio-grande;
+			}
+
+			&:before {
+				content: attr(data-index);
+				@extend .poa;
+				@extend .l1;
+				@extend .centery;
+				@extend .z1;
+				counter-increment: flag;
+				width: 1.5em;
+				height: 1.5em;
+				line-height: 1.5em;
+				border-radius: 100%;
+				background-color: shade(color('off-white'), 10);
+				@extend .c-mobster;
+				@extend .tac;
+			}
+		}
+
+		&:last-child .button:after {
+			display: none;
+		}
+	}
+
+	.breadcrumbs__overflow {
+		.styled-select {
+			z-index: 1;
+
+			select {
+				width: rem(30);
+				padding-top: .5rem;
+				padding-bottom: .6rem;
+				padding-left: 0;
+				padding-right: 0;
+				line-height: 1;
+				font-size: rem(11);
+				color: transparent;
+				border: none;
+				background: transparent;
+			}
+		}
+
+		svg {
+			display: block;
+			width: rem(11);
+			height: rem(11);
+		}
+	}
+
+		.breadcrumb__overflow__icon {
+			z-index: -1;
+		}

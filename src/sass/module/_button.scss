@@ -1,0 +1,321 @@
+//  Button Module -------------------------------------------------------------
+
+.button {
+	@extend .dib;
+	border: none;
+	background: none;
+	@extend .lh1;
+	cursor: pointer;
+	outline: none;
+
+	&::-moz-focus-inner {
+		padding: 0;
+		border: 0;
+	}
+
+	&:not(.tdu) {
+		@extend .tdn;
+	}
+
+	&[disabled],
+	&.is-loading {
+		pointer-events: none;
+		box-shadow: none;
+	}
+
+	&[disabled] {
+		opacity: 0.3;
+	}
+
+	&.is-loading {
+		opacity: 0.5;
+	}
+
+	.loader {
+		@extend .por;
+		@extend .dib;
+		width: .8em;
+		height: .8em;
+		@extend .mr1;
+		text-indent: -9999em;
+		border-radius: 50%;
+		background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+		animation: loadSpinner .5s infinite linear;
+		transform: translateZ(0);
+		-ms-transform: translateZ(0);
+
+		&:before,
+		&:after {
+			content: '';
+			@extend .poa;
+			@extend .l0;
+			@extend .t0;
+		}
+
+		&:before {
+			width: 50%;
+			height: 50%;
+			border-radius: 100% 0 0 0;
+		}
+
+		&:after {
+			width: 75%;
+			height: 75%;
+			border-radius: 50%;
+			margin: auto;
+			@extend .b0;
+			@extend .r0;
+		}
+	}
+}
+
+@keyframes loadSpinner {
+	0% {
+		-webkit-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+	}
+}
+
+.show-on-success {
+	display: none;
+}
+
+
+
+// Modifiers ------------------------------------------------------------------
+//
+
+.button--small {
+	@extend .px1;
+	@extend .pyh;
+}
+
+.button--medium {
+	@extend .px1;
+	@extend .py1;
+}
+
+.button--text {
+	padding: 0;
+	text-decoration: underline;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
+}
+
+.button--confirm,
+.button--cta,
+.button--white,
+.button--dark {
+	border-radius: .3em;
+	@extend .fwb;
+	@extend .c-white;
+	transition:
+		background-color .2s $easeOutCubic,
+		color .2s $easeOutCubic,
+		box-shadow .2s $easeOutCubic
+	;
+
+	&:hover,
+	&:focus,
+	&:active,
+	&:hover svg,
+	&:focus svg,
+	&:active svg {
+		transition-timing-function: $easeInOutSine;
+		transition-duration: .1s;
+	}
+
+	&:not(.button--ghost) {
+		background-image: linear-gradient(to bottom, rgba(color('black'), 0), rgba(color('black'), .2));
+		box-shadow:
+			0 rem(1) 0 rgba(color('black'), .1),
+			0 rem(2) rem(2) rgba(color('black'), .1)
+		;
+
+		&:active {
+			box-shadow:
+				inset 0 rem(1) 0 rgba(color('black'), .1),
+				inset 0 rem(2) rem(2) rgba(color('black'), .1)
+			;
+		}
+	}
+
+	svg {
+		transition: fill .2s $easeOutCubic;
+	}
+}
+
+.button--confirm {
+	background-color: color('curious-blue');
+	text-shadow: 0 .05em .05em rgba(color('black'), .2);
+
+	// &.button--ghost {
+	// 	border: rem(1) solid shade(color('curious-blue'), 10);
+	// }
+
+	&:hover,
+	&:focus {
+		background-color: tint(color('curious-blue'), 10);
+	}
+
+	&:active {
+		background-color: shade(color('curious-blue'), 20);
+	}
+
+	svg {
+		fill: color('charcoal');
+	}
+
+	.loader:after {
+		background-color: color('curious-blue');
+	}
+}
+
+.button--cta {
+	background-color: color('rio-grande');
+	text-shadow: 0 .05em .05em rgba(color('black'), .2);
+
+	// &.button--ghost {
+	// 	border: rem(1) solid shade(color('rio-grande'), 10);
+	// }
+
+	&:hover,
+	&:focus {
+		background-color: tint(color('rio-grande'), 10);
+	}
+
+	&:active {
+		background-color: shade(color('rio-grande'), 20);
+	}
+
+	svg {
+		fill: color('white');
+	}
+
+	.loader:after {
+		background-color: color('rio-grande');
+	}
+}
+
+.button--white {
+	background-color: color('white');
+
+	&.button--ghost {
+		border: rem(1) solid shade(color('white'), 10);
+	}
+
+	&:hover,
+	&:focus {
+		background-color: color('white');
+		border-color: color('white');
+		@extend .c-rio-grande;
+
+		svg {
+			fill: color('rio-grande');
+		}
+	}
+
+	&:active {
+		background-color: shade(color('white'), 10);
+		border-color: shade(color('white'), 20);
+		color: shade(color('rio-grande'), 10);
+
+		svg {
+			fill: shade(color('rio-grande'), 10);
+		}
+	}
+
+	svg {
+		fill: color('charcoal');
+	}
+
+	.loader:after {
+		background-color: color('white');
+	}
+}
+
+.button--neutral {
+	border-radius: .3em;
+	background-color: color('off-white');
+
+	&.button--ghost {
+		border: rem(1) solid shade(color('off-white'), 10);
+	}
+
+	&:hover,
+	&:focus {
+		background-color: color('off-white');
+		border-color: color('off-white');
+	}
+
+	&:active {
+		background-color: shade(color('off-white'), 10);
+		border-color: shade(color('off-white'), 20);
+		color: shade($doc-color, 10);
+
+		svg {
+			fill: shade($doc-color, 10);
+		}
+	}
+
+	svg {
+		fill: $doc-color;
+	}
+
+	.loader:after {
+		background-color: color('off-white');
+	}
+}
+
+.button--dark {
+	border-radius: .3em;
+	background-color: color('mobster');
+	color: color('white');
+
+	&.button--ghost {
+		border: rem(1) solid shade(color('mobster'), 10);
+		color: color('mobster');
+	}
+
+	&:not(.button--ghost) {
+		svg {
+			fill: color('white');
+		}
+	}
+
+	&:hover,
+	&:focus {
+		background-color: tint(color('mobster'), 10);
+		border-color: tint(color('mobster'), 10);
+		color: color('white');
+
+		svg {
+			fill: color('white');
+		}
+	}
+
+	&:active {
+		background-color: shade(color('mobster'), 10);
+		border-color: shade(color('mobster'), 20);
+		color: shade(color('white'), 10);
+
+		svg {
+			fill: shade(color('white'), 10);
+		}
+	}
+
+	.loader:after {
+		background-color: color('mobster');
+	}
+}
+
+.button--ghost {
+	background-color: transparent;
+}

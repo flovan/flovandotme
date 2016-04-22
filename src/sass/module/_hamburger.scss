@@ -1,0 +1,83 @@
+// Hamburger ------------------------------------------------------------------
+
+.hamburger-button {
+	&.is-active {
+		@extend .por;
+		@extend .z3;
+	}
+}
+
+	.hamburger-button__box {
+		@extend .por;
+		@extend .dib;
+		width: rem(30);
+		height: rem(17);
+		@extend .vam;
+	}
+
+	.hamburger-button__inner {
+		top: 0;
+		transition: transform .4s cubic-bezier(.68,-.55,.265,1.55);
+
+		&,
+		&:before,
+		&:after {
+			@extend .poa;
+			left: 0;
+			height: rem(3);
+			width: rem(30);
+			@extend .bgc-off-white;
+		}
+
+		&:before,
+		&:after {
+			@extend .db;
+			content: '';
+		}
+
+		&:before {
+			top: rem(7);
+			transition: opacity .15s .4s ease;
+		}
+
+		&:after {
+			top: rem(14);
+			transition: transform .4s cubic-bezier(.68,-.55,.265,1.55);
+		}
+
+		.is-active & {
+		    transition-delay: .1s;
+			transform: translate3d(0, rem(7), 0) rotate(135deg);
+			-ms-transform: translate3d(0, rem(7), 0) rotate(135deg);
+
+			&:before {
+				transition-delay: 0s;
+				opacity: 0;
+			}
+
+			&:after {
+				transition-delay: .1s;
+				transform: translate3d(0, rem(-14),0) rotate(-270deg);
+				-ms-transform: translate3d(0, rem(-14),0) rotate(-270deg);
+			}
+		}
+	}
+
+	.hamburger-button__label {
+		transition: color .2s $easeOutCubic;
+
+		.hamburger-button:not(.is-active) &:before {
+			content: attr(data-open-label);
+		}
+
+		.hamburger-button.is-active &:before {
+			content: attr(data-close-label);
+		}
+
+		.hamburger-button:hover &,
+		.hamburger-button:focus &, {
+			@extend .c-rio-grande;
+			transition-duration: .1s;
+			transition-timing-function: $easeInOutSine;
+		}
+	}

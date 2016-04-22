@@ -1,0 +1,111 @@
+// Toggle Module --------------------------------------------------------------
+
+.toggle {
+	@extend .por;
+}
+
+	.toggle__trigger {
+		@extend .pl0;
+		@extend .pr0;
+
+		&.is-active {
+			background-color: rgba(color('black'), .1);
+		}
+	}
+
+	.toggle__wrapper {
+		.toggle:not(.is-active) & {
+			@extend .dn;
+		}
+	}
+
+// Modifiers ------------------------------------------------------------------
+
+.toggle--language {
+	img {
+		@extend .por;
+		top: .2em;
+		height: .7em;
+		width: auto;
+		@extend .vat;
+	}
+}
+
+.toggle--language,
+.toggle--account,
+.toggle--support {
+	@media (min-width: rem(bp('m'), 16)) {
+		.toggle__wrapper {
+			width: rem(200);
+		}
+	}
+
+	.button--white {
+		background-image: none;
+		border-radius: 0;
+		box-shadow: none;
+
+		&:active {
+			box-shadow: none;
+		}
+	}
+}
+
+.toggle--search {
+	@media (min-width: rem(bp('m'), 16)) {
+		.toggle__wrapper {
+			width: rem(350);
+		}
+	}
+}
+
+.toggle--account {
+	@media (min-width: rem(bp('m'), 16)) {
+		.toggle__wrapper {
+			width: rem(200);
+		}
+	}
+}
+
+.toggle--floating {
+	.toggle__wrapper {
+		@media (min-width: rem(bp('m'), 16)) {
+			position: absolute;
+			right: 0;
+			top: 100%;
+			z-index: 2;
+			min-width: 100%;
+			box-shadow: 0 rem(1) 0 rgba(color('black'), .1), 0 rem(2) rem(3) rgba(color('black'), .1);
+		}
+
+		.toggle:not(.is-active) & {
+			@extend .dn;
+		}
+
+		ul {
+			@extend .p0;
+		}
+
+		li {
+			list-style-type: none;
+
+			&:not(:last-child) {
+				border-bottom: rem(1) solid color('off-white');
+			}
+		}
+	}
+}
+
+.toggle--profession {
+	.toggle__trigger {
+		@extend .px1;
+		padding-top: .3em;
+		height: em(42);
+		line-height: inherit;
+
+		svg {
+			display: block;
+			fill: color('mobster');
+		}
+	}
+}
