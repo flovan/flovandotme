@@ -17,18 +17,17 @@ const routes = [
 ];
 
 const template = ejs.compile(fs.readFileSync(path.resolve(process.cwd(), 'src/template.html'), 'utf-8'));
-const ExtractFrontCss = new ExtractTextPlugin('front', 'front.css');
+const ExtractFrontCss = new ExtractTextPlugin('front', 'assets/css/front.css');
 
 module.exports =  {
     entry: {
-		'front.app': path.resolve(process.cwd(), 'core/index.js'),
-		'front.style': path.resolve(process.cwd(), 'src/sass/main.scss')
+		'front.app': path.resolve(process.cwd(), 'core/index.js')
 	},
 
     output: {
 		filename: '[name].js',
-        chunkFilename: '[name].js',
         path: path.resolve(process.cwd(), config.buildFolder),
+		publicPath: '/',
         libraryTarget: 'umd'
     },
 
@@ -45,7 +44,15 @@ module.exports =  {
             test: /\.jsx?$/,
             include: /(core|src)/,
             loader: 'babel'
-        }]
+        }, {
+			test: /\.(png|jpg|jpeg|gif|svg)$/,
+			loader: `file?name=assets/img/[name].[ext]`,
+			include: /src\/assets\/img/
+		}, {
+			test: /\.(woff|woff2|svg|eot|ttf)$/,
+			loader: `file?name=assets/fonts/[name].[ext]`,
+			include: /src\/assets\/fonts/
+		}]
     },
 
     postcss: function() {
@@ -55,6 +62,10 @@ module.exports =  {
             })
         ];
     },
+
+	sassLoader: {
+		sourceMap: false
+	},
 
     plugins: [
         ExtractFrontCss,
@@ -70,7 +81,5 @@ module.exports =  {
             mangle: true,
             screw_ie8: true,
         })
-	] : []),
-
-    devtool: 'cheap-module-source-map'
+	] : [])
 };
