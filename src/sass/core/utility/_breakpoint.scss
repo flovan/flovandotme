@@ -1,0 +1,22 @@
+@import '../config';
+
+// breakpoint()
+// bp()
+//
+// Returns the value for the requested key from the `$breakpoints` map located
+// in `core/_config.scss`
+//
+// $key: The key to grab from the map
+
+@function breakpoint ($key) {
+	@if map-has-key($breakpoints, $key) {
+		@return map-get($breakpoints, $key);
+	}
+
+	@warn "Unknown `#{$key}` in $breakpoints.";
+	@return null;
+}
+
+@function bp ($key) {
+	@return breakpoint($key);
+}

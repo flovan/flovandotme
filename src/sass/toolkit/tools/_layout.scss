@@ -1,0 +1,38 @@
+// Layout Tools (v1) ----------------------------------------------------------
+
+.inline       { display: inline; }
+.block        { display: block; }
+.inline-block { display: inline-block; }
+.table        { display: table; }
+.table-cell   { display: table-cell; }
+
+.overflow-hidden { overflow: hidden; }
+.overflow-scroll { overflow: scroll; }
+.overflow-auto   { overflow: auto; }
+
+.clearfix:before,
+.clearfix:after {
+	content: "";
+	display: table
+}
+.clearfix:after { clear: both; }
+
+.float-left  { float: left; }
+.float-right { float: right; }
+
+@each $bp, $bpVal in $breakpoints {
+    @media screen and (min-width: rem($bpVal,16)) {
+        .#{$bp}-inline       { display: inline; }
+		.#{$bp}-block        { display: block; }
+		.#{$bp}-inline-block { display: inline-block; }
+		.#{$bp}-table        { display: table; }
+		.#{$bp}-table-cell   { display: table-cell; }
+
+		.#{$bp}-overflow-hidden { overflow: hidden; }
+		.#{$bp}-overflow-scroll { overflow: scroll; }
+		.#{$bp}-overflow-auto   { overflow: auto; }
+
+		.#{$bp}-float-left  { float: left; }
+		.#{$bp}-float-right { float: right; }
+    }
+}

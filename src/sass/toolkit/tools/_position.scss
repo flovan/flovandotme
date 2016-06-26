@@ -1,0 +1,33 @@
+// Position Tools (v1) --------------------------------------------------------
+
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed    { position: fixed; }
+
+.top-0    { top: 0; }
+.right-0  { right: 0; }
+.bottom-0 { bottom: 0; }
+.left-0   { left: 0; }
+
+.centerx  { left: 50%; transform: translateX(-50%); }
+.centery  { top: 50%; transform: translateY(-50%); }
+.centerxy { left: 50%; top: 50%; transform: translate(-50%, -50%); }
+
+.z1 { z-index: 1; }
+.z2 { z-index: 2; }
+.z3 { z-index: 3; }
+.z4 { z-index: 4; }
+.z4 { z-index: 5; }
+
+@each $bp, $bpVal in $breakpoints {
+    @media screen and (min-width: rem($bpVal,16)) {
+        .#{$bp}-relative { position: relative; }
+		.#{$bp}-absolute { position: absolute; }
+		.#{$bp}-fixed    { position: fixed; }
+
+		.#{$bp}-top-0    { top: 0; }
+		.#{$bp}-right-0  { right: 0; }
+		.#{$bp}-bottom-0 { bottom: 0; }
+		.#{$bp}-left-0   { left: 0; }
+    }
+}

@@ -1,0 +1,11 @@
+// tint()
+//
+// Add percentage of white to a color
+// Taken from Bourbon source
+//
+// $color:   The base HEX color
+// $percent: Amount of white mix into $color, in %
+
+@function tint ($color, $percent) {
+	@return mix(white, $color, $percent);
+}

@@ -1,0 +1,9 @@
+// strip()
+//
+// Converts any typed variable to a regular integer
+//
+// $number: The value you want to unify
+
+@function strip ($number) {
+	@return $number / ($number * 0 + 1);
+}

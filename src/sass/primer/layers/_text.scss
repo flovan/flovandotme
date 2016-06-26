@@ -1,0 +1,60 @@
+// Text Primer (v1) -----------------------------------------------------------
+//
+// This primer takes care of setting reasonable basic styles on various text
+// nodes, such as titles, lists and links.
+
+// ::-moz-selection { background: #fff657; color: $doc-color; text-shadow: none; }
+// ::selection      { background: #fff657; color: $doc-color; text-shadow: none; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+ul,
+ol {
+	margin: 0;
+	margin-bottom: 1em;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.25;
+	word-break: break-word;
+}
+
+ul,
+ol {
+	padding: 0;
+}
+
+blockquote {
+	padding-left: 1.4em;
+	border-left: rem(10) solid rgba($doc-color, .15);
+}
+
+a {
+	color: $doc-color;
+	outline: none;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		color: $debian-red;
+	}
+}
+
+small {
+	font-size: small;
+}

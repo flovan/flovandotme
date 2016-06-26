@@ -1,0 +1,70 @@
+// Sanitize Primer (v1) -------------------------------------------------------
+//
+// This primer reset or levels out various cross-browser issues so we don't
+// have to worry about inconsistencies.
+//
+// Based on https://10up.github.io/sanitize.css/
+
+main,
+details,
+summary {
+	display: block;
+	// In order:
+	// Android 4.3-, Internet Explorer 11-, Windows Phone 8.1+
+	// Edge 12+, Firefox 40+, Internet Explorer 11-, Windows Phone 8.1+
+	// Firefox 40+, Internet Explorer 11-, Windows Phone 8.1+
+}
+
+pre,
+textarea {
+	overflow: auto;
+	// In order:
+	// Internet Explorer 11-
+	// Edge 12+, Internet Explorer 11-
+}
+
+html,
+input,
+textarea,
+button {
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-style: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+}
+
+button {
+	overflow: visible; // Internet Explorer 11-
+}
+
+table {
+	border-collapse: 0;
+	border-spacing: 0;
+	width: 100%;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+
+a,
+input,
+button {
+	-ms-touch-action: none !important;
+	touch-action: none !important;
+	// Touch fix:
+	// http://msdn.microsoft.com/en-us/library/ie/hh772044(v=vs.85).aspx
+}

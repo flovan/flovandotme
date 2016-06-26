@@ -1,0 +1,35 @@
+// Document Primer (v1) -------------------------------------------------------
+//
+// This primer sets up the root HTML element, as well as the body element. It
+// also inherits the HTML box-sizing setting down to all other elements.
+
+@font-face {
+	font-family: 'Canadian';
+	font-weight: normal;
+    font-style: normal;
+	src: url('../assets/fonts/canadian.woff') format('woff'),
+		 url('../assets/fonts/canadian.woff2') format('woff2');
+}
+
+html {
+	box-sizing: border-box;
+	font-family: $serif-font-stack;
+	font-size: 100%;
+	line-height: $doc-line-height;
+	background-color: $doc-bg-color;
+
+	@media (min-width: em(bp('xl'), 16)) {
+		font-size: 110%;
+	}
+}
+
+body {
+	margin: 0;
+	color: $doc-color;
+}
+
+*,
+*:after,
+*:before {
+	box-sizing: inherit;
+}

@@ -1,3 +1,10 @@
+# Build folder
 dist
+
+# Node related
 node_modules
 npm-debug.log
+
+# Vagrant related
+.vagrant
+*.box

@@ -1,0 +1,64 @@
+// Type Tools (v1) ------------------------------------------------------------
+
+.font-family-inherit { font-family: inherit; }
+.font-family-sans    { font-family: $sans-font-stack; }
+.font-family-serif   { font-family: $serif-font-stack; }
+
+.h0 { font-size: 3rem; }
+.h1 { font-size: 2rem; }
+.h2 { font-size: 1.5rem; }
+.h3 { font-size: 1.25rem; }
+.h4 { font-size: 1rem; }
+.h5 { font-size: .875rem; }
+.h6 { font-size: .75rem; }
+
+.font-size-inherit { font-size: inherit; }
+.small { font-size: small; }
+.smaller { font-size: smaller; }
+.x-small { font-size: x-small; }
+.xx-small { font-size: xx-small; }
+
+.bold      { font-weight: bold; }
+.normal    { font-weight: normal; }
+.italic    { font-style: italic; }
+.uppercase { text-transform: uppercase;  }
+.spaced    { letter-spacing: 0.05em; }
+
+.left    { text-align: left; }
+.center  { text-align: center; }
+.right   { text-align: right; }
+.justify { text-align: justify; }
+
+.nowrap { white-space: nowrap }
+.break-word { word-wrap: break-word }
+
+.line-height-1 { line-height: 1; }
+.line-height-2 { line-height: 1.125; }
+.line-height-3 { line-height: 1.25; }
+.line-height-4 { line-height: 1.5; }
+
+.decoration-underline { text-decoration: underline; }
+.decoration-none { text-decoration: none; }
+
+.list-style-none { list-style: none; }
+.list-reset {
+	list-style: none;
+	padding-left: 0;
+}
+
+@each $bp, $bpVal in $breakpoints {
+    @media screen and (min-width: rem($bpVal,16)) {
+		.#{$bp}-h0 { font-size: 3rem; }
+        .#{$bp}-h1 { font-size: 2rem; }
+		.#{$bp}-h2 { font-size: 1.5rem; }
+		.#{$bp}-h3 { font-size: 1.25rem; }
+		.#{$bp}-h4 { font-size: 1rem; }
+		.#{$bp}-h5 { font-size: .875rem; }
+		.#{$bp}-h6 { font-size: .75rem; }
+
+		.#{$bp}-left    { text-align: left; }
+		.#{$bp}-center  { text-align: center; }
+		.#{$bp}-right   { text-align: right; }
+		.#{$bp}-justify { text-align: justify; }
+    }
+}

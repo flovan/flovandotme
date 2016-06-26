@@ -1,0 +1,13 @@
+// rem()
+//
+// Converts a target value to rem's
+//
+// $target:  The target integer
+// $context: Base for conversion, defaults to $doc-em-factor
+
+@function rem ($target, $context: $doc-font-size) {
+	$context: strip($context);
+	$target: strip($target);
+
+	@return ($target/$context)*1rem;
+}

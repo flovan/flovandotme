@@ -1,0 +1,28 @@
+// Color Tools (v1) -----------------------------------------------------------
+
+@each $c, $cVal in $colors {
+    .background-#{""+$c} { background-color: $cVal; }
+	.color-#{""+$c}      { color: $cVal; }
+    .fill-#{""+$c}       { fill: $cVal; }
+}
+
+.background-error   { background-color: $error; }
+.color-error        { color: $error; }
+.fill-error         { fill: $error; }
+.background-warning { background-color: $warning; }
+.color-warning      { color: $warning; }
+.fill-warning       { fill: $warning; }
+.background-success { background-color: $success; }
+.color-success      { color: $success; }
+.fill-success       { fill: $success; }
+.background-info    { background-color: $info; }
+.color-info         { color: $info; }
+.fill-info          { fill: $info; }
+
+.color-shaded { background-color: rgba($black, $shade-amount); }
+.background-shaded { background-color: rgba($black, $shade-amount); }
+.fill-shaded { fill: rgba($black, $shade-amount); }
+
+.color-tinted { background-color: rgba($white, $tint-amount); }
+.background-tinted { background-color: rgba($white, $tint-amount); }
+.fill-tinted { fill: rgba($white, $tint-amount); }

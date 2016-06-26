@@ -1,0 +1,22 @@
+@import '../config';
+
+// color()
+// c()
+//
+// Returns the value for the requested key from the `$colors` map located
+// in `core/_config.scss`
+//
+// $key: The key to grab from the map
+
+@function color ($key) {
+	@if map-has-key($colors, $key) {
+		@return map-get($colors, $key);
+	}
+
+	@warn "Unknown `#{$key}` in $colors.";
+	@return null;
+}
+
+@function c ($key) {
+	@return color($key);
+}

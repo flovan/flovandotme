@@ -1,13 +1,12 @@
 import React from 'react'
 
-import Example from '../components/example';
+import DoodleDragger from '../components/DoodleDraggerComponent';
 
 class Home extends React.Component {
 	render () {
 		return (
 			<div>
-				<h1>Home</h1>
-				<Example/>
+				
 			</div>
 		);
 	}

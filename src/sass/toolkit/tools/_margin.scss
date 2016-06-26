@@ -1,0 +1,51 @@
+// Margin Tools (v1) ----------------------------------------------------------
+
+.m0  { margin:        0; }
+.mt0 { margin-top:    0; }
+.mr0 { margin-right:  0; }
+.mb0 { margin-bottom: 0; }
+.ml0 { margin-left:   0; }
+.mx0 { margin-left:   0; margin-right:  0; }
+.my0 { margin-top:    0; margin-bottom: 0; }
+
+.ml-auto { margin-left: auto }
+.mr-auto { margin-right: auto }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+@each $sp, $sVal in $spacings {
+	.m#{$sp}  { margin:        $sVal; }
+    .mt#{$sp} { margin-top:    $sVal; }
+    .mr#{$sp} { margin-right:  $sVal; }
+    .mb#{$sp} { margin-bottom: $sVal; }
+    .ml#{$sp} { margin-left:   $sVal; }
+    .mx#{$sp} { margin-left:   $sVal; margin-right: $sVal; }
+    .my#{$sp} { margin-top:    $sVal; margin-bottom: $sVal; }
+    .mxn#{$sp} { margin-left:  -$sVal; margin-right: -$sVal; }
+}
+
+@each $bp, $bpVal in $breakpoints {
+    @media screen and (min-width: rem($bpVal,16)) {
+        .#{$bp}-m0  { margin:        0; }
+		.#{$bp}-mt0 { margin-top:    0; }
+		.#{$bp}-mr0 { margin-right:  0; }
+		.#{$bp}-mb0 { margin-bottom: 0; }
+		.#{$bp}-ml0 { margin-left:   0; }
+		.#{$bp}-mx0 { margin-left:   0; margin-right:  0; }
+		.#{$bp}-my0 { margin-top:    0; margin-bottom: 0; }
+
+		.#{$bp}-ml-auto { margin-left: auto }
+		.#{$bp}-mr-auto { margin-right: auto }
+		.#{$bp}-mx-auto { margin-left: auto; margin-right: auto; }
+
+		@each $sp, $sVal in $spacings {
+			.#{$bp}-m#{$sp}  { margin:        $sVal; }
+		    .#{$bp}-mt#{$sp} { margin-top:    $sVal; }
+		    .#{$bp}-mr#{$sp} { margin-right:  $sVal; }
+		    .#{$bp}-mb#{$sp} { margin-bottom: $sVal; }
+		    .#{$bp}-ml#{$sp} { margin-left:   $sVal; }
+		    .#{$bp}-mx#{$sp} { margin-left:   $sVal; margin-right: $sVal; }
+		    .#{$bp}-my#{$sp} { margin-top:    $sVal; margin-bottom: $sVal; }
+		    .#{$bp}-mxn#{$sp} { margin-left:  -$sVal; margin-right: -$sVal; }
+		}
+    }
+}

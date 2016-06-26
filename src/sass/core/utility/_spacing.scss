@@ -1,0 +1,22 @@
+@import '../config';
+
+// spacing()
+// sp()
+//
+// Returns the value for the requested key from the `$spacings` map located
+// in `core/_config.scss`
+//
+// $key: The key to grab from the map
+
+@function spacing ($key) {
+	@if map-has-key($spacings, $key) {
+		@return map-get($spacings, $key);
+	}
+
+	@warn "Unknown `#{$key}` in $spacings.";
+	@return null;
+}
+
+@function bp ($key) {
+	@return spacing($key);
+}

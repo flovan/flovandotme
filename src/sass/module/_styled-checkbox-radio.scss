@@ -1,0 +1,69 @@
+label {
+	input[type="checkbox"],
+	input[type="radio"] {
+		@extend .hide;
+
+		& + span {
+			@extend .por;
+			@extend .db;
+			padding-left: 1.5rem;
+		}
+
+		& + span:before {
+			content: '';
+			@extend .poa;
+			@extend .l0;
+			top: .2em;
+			@extend .dib;
+			width: 1rem;
+			height: 1rem;
+			@extend .mrh;
+			border: rem(2) solid #CCCCCC;
+			@extend .vam;
+		}
+
+		&:focus + span:before {
+			border-color: tint(#CCCCCC, 40);
+		}
+	}
+
+	input[type="checkbox"]:checked + span:after {
+		content: '';
+		@extend .poa;
+		@extend .db;
+		top: rem(7);
+		left: rem(6);
+		width: rem(4);
+		height: rem(7);
+		border: solid shade(#208A77, 30);
+		border-width: 0 rem(2) rem(2) 0;
+		transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
+	}
+
+	input[type="checkbox"][indeterminate] + span:after {
+		content: '';
+		@extend .poa;
+		@extend .db;
+		top: .6rem;
+		left: rem(6);
+		width: rem(4);
+		height: rem(2);
+		background-color: $white;
+	}
+
+	input[type="radio"] + span:before,
+	input[type="radio"]:checked + span:after {
+		border-radius: 100%;
+	}
+
+	input[type="radio"]:checked + span:before,
+	input[type="checkbox"]:checked + span:before {
+		background-color: ;
+		border-color: #208A77;
+	}
+
+	input[type="checkbox"][indeterminate] + span:before {
+		background-color: #CCCCCC;
+	}
+}

@@ -1,13 +1,144 @@
+// Project configuration ------------------------------------------------------
 
-// Grid -----------------------------------------------------------------------
+// Typography variables
 
-$gutter-width:        5%;
-$container-max-width: 1064px;
-$page-min-padding:    4%;
+$sans-font-stack:  -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, sans-serif;
+$serif-font-stack: DejaVu Serif, Canadian, Times, Times New Roman, serif;
+$mono-font-stack:  Courier New, Courier, monospace;
+$doc-font-size:    16px;
+$doc-line-height:  1.5;
 
 
 
-// Spacing --------------------------------------------------------------------
+// Theme specific colors
+
+$white:        #FFFFFF;
+$bridal-heath: #FFFAF6;
+$rodeo-dust:   #E5BC71;
+$debian-red:   #C61050;
+$java:         #1BA292;
+$paris:        #272965;
+$vulcan:       #10171C;
+$black:        #000000;
+
+
+
+// Reporting colors
+
+$success: #3D8B31;
+$error:   #BE3C20;
+$warning: #DEBF39;
+$info:    #51A1F0;
+
+
+
+// Aliases
+
+$doc-color:    $vulcan;
+$doc-bg-color: $bridal-heath;
+
+
+// Tinting and shading
+
+$tint-amount: .6;
+$shade-amount: .6;
+
+
+
+// Border variables
+
+$border-width: 1px;
+$border-width-fat: 4px;
+$border-rounded-radius: 3px;
+
+
+
+// Set the amount of z-depth levels the toolkit needs to provide
+
+$z-depth: 5;
+
+
+
+// Easing beziers
+//
+// Note: visual representations here: http://easings.net
+
+$easeInSine:     cubic-bezier(0.47, 0, 0.745, 0.715);
+$easeOutSine:    cubic-bezier(0.39, 0.575, 0.565, 1);
+$easeInOutSine:  cubic-bezier(0.445, 0.05, 0.55, 0.95);
+$easeInQuad:     cubic-bezier(0.55, 0.085, 0.68, 0.53);
+$easeOutQuad:    cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$easeInOutQuad:  cubic-bezier(0.455, 0.03, 0.515, 0.955);
+$easeInCubic:    cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$easeOutCubic:   cubic-bezier(0.215, 0.61, 0.355, 1);
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+$easeInQuart:    cubic-bezier(0.895, 0.03, 0.685, 0.22);
+$easeOutQuart:   cubic-bezier(0.165, 0.84, 0.44, 1);
+$easeInOutQuart: cubic-bezier(0.77, 0, 0.175, 1);
+$easeInQuint:    cubic-bezier(0.755, 0.05, 0.855, 0.06);
+$easeOutQuint:   cubic-bezier(0.23, 1, 0.32, 1);
+$easeInOutQuint: cubic-bezier(0.86, 0, 0.07, 1);
+$easeInExpo:     cubic-bezier(0.95, 0.05, 0.795, 0.035);
+$easeOutExpo:    cubic-bezier(0.19, 1, 0.22, 1);
+$easeInOutExpo:  cubic-bezier(1, 0, 0, 1);
+$easeInCirc:     cubic-bezier(0.6, 0.04, 0.98, 0.335);
+$easeOutCirc:    cubic-bezier(0.075, 0.82, 0.165, 1);
+$easeInOutCirc:  cubic-bezier(0.785, 0.135, 0.15, 0.86);
+$easeInBack:     cubic-bezier(0.6, -0.28, 0.735, 0.045);
+$easeOutBack:    cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$easeInOutBack:  cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+
+
+// Variable maps --------------------------------------------------------------
+//
+// These maps are used by the toolkit, but they also can be used through the
+// various helper functions, as explained below.
+//
+// Note: each color in this map will generate styles and thus increase the
+// filesize of the toolkit's resulting CSS
+
+
+
+// Color map
+//
+// Can be used with `c(<key>)` or `color(<key>)`
+
+$colors: (
+	'rodeo-dust':   $rodeo-dust,
+	'debian-red':   $debian-red,
+	'paris':        $paris
+);
+
+/*$colors: (
+	'white':        $white,
+	'rodeo-dust':   $rodeo-dust,
+	'debian-red':   $debian-red,
+	'java':         $java,
+	'paris':        $paris,
+	'vulcan':       $vulcan
+);*/
+
+
+// Breakpoint map
+//
+// Can be used with `bp(<key>)` or `breakpoint(<key>)`
+
+$breakpoints: (
+	xxs: 530,
+	xs:  590,
+	s:   750,
+	m:   940,
+	l:   1050,
+	xl:  1150,
+	xxl: 1450
+);
+
+
+
+// Spacing map
+//
+// Can be used with `sp(<key>)` or `spacing(<key>)`
 
 $spacings: (
 	0: 0,
@@ -18,80 +149,3 @@ $spacings: (
 	4: 4rem,
 	5: 5rem
 );
-
-
-
-// Breakpoint -----------------------------------------------------------------
-
-$breakpoints: (
-	xxs: 530,
-	xs:  590,
-	s:   750,
-	m:   940,
-	l:   1050
-);
-
-/*,
-xl:  1250,
-xxl: 1450*/
-
-@function bp($key) {
-	@if map-has-key($breakpoints, $key) {
-		@return map-get($breakpoints, $key);
-	}
-
-	@warn "Unknown `#{$key}` in $breakpoints.";
-	@return null;
-}
-
-
-
-// Colors ---------------------------------------------------------------------
-
-// Make a map to generate classes from
-$colors: (
-	'white': #FFFFFF,
-	'rodeo-dust': #E5BC71,
-	'debian-red': #C61050,
-	'java': #1BA292,
-	'paris': #272965,
-	'vulcan': #10171C
-);
-
-@function color($key) {
-	@if map-has-key($colors, $key) {
-		@return map-get($colors, $key);
-	}
-
-	@warn "Unknown `#{$key}` in $colors.";
-	@return null;
-}
-
-$doc-color: color('vulcan');
-$doc-bg-color: color('white');
-
-// Reporting colors
-
-$reporting-text:    #333333;
-$reporting-success: #3D8B31;
-$reporting-error:   #BE3C20;
-$reporting-warning: #DEBF39;
-$reporting-info:    #51A1F0;
-
-
-
-// Font -----------------------------------------------------------------------
-//
-// Default stack base on http://www.jordanm.co.uk/tinytype
-
-$sans-font-stack:  -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, sans-serif;
-$serif-font-stack: Canadian, Times, Times New Roman, serif;
-$mono-font-stack:  Courier New, Courier, monospace;
-$doc-font-size:    16px;
-$doc-line-height:  1.5;
-
-// Easing ---------------------------------------------------------------------
-//
-
-$easeOutCubic:   cubic-bezier(0.215, 0.61, 0.355, 1);
-$easeInOutSine:  cubic-bezier(0.445, 0.050, 0.550, 0.950);

@@ -1,0 +1,19 @@
+// Sizing Tools (v1) ----------------------------------------------------------
+
+.w100 { width: 100%; }
+.h100 { height: 100%; }
+.wgs  { width: 38.2%; }
+.wgl  { width: 61.8%; }
+.wa   { width: auto; }
+.ha   { height: auto; }
+
+@each $bp, $bpVal in $breakpoints {
+    @media screen and (min-width: rem($bpVal,16)) {
+        .#{$bp}-w100 { width: 100%; }
+        .#{$bp}-h100 { height: 100%; }
+		.#{$bp}-wgs  { width: 38.2%; }
+		.#{$bp}-wgl  { width: 61.8%; }
+        .#{$bp}-wa   { width: auto; }
+        .#{$bp}-ha   { height: auto; }
+    }
+}

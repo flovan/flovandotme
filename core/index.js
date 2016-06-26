@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
 import { Router, RouterContext, match, browserHistory, createMemoryHistory } from 'react-router';
-import { AppContainer } from 'react-hot-loader';
 
 import routes from './routes';
 
@@ -14,7 +13,7 @@ if (typeof document !== 'undefined') {
 	);
 }
 
-export default ({assets, template, path, styles}, callback) => {
+export default ({assets, template, path/*, styles*/}, callback) => {
 	const history = createMemoryHistory();
 	const location = history.createLocation(path);
 

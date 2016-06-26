@@ -1,0 +1,11 @@
+// shade()
+//
+// Add percentage of black to a color
+// Taken from Bourbon source
+//
+// $color:   The base HEX color
+// $percent: Amount of black mix into $color, in %
+
+@function shade ($color, $percent) {
+	@return mix(black, $color, $percent);
+}

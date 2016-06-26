@@ -1,66 +1,81 @@
 // Import core ----------------------------------------------------------------
+//
+// These imports provision other imports down below with the needed variables,
+// utility functions and mixins
 
-@import 'core/functions';
-@import 'core/mixin';
 @import 'core/config';
+@import 'core/utilities';
+@import 'core/mixins';
 
 
 
-// Set up document ------------------------------------------------------------
+// Add Primer -----------------------------------------------------------------
+//
+// The primer applies basic low-specificity styles to for example the root html
+// and body element, and mainly acts as a sanitizer
 
-@import 'module/reset';
-
-// html,
-// body {
-// 	height: 100%;
-// }
-
-html {
-	box-sizing: border-box;
-	font-family: $serif-font-stack;
-	font-size: 100%;
-	line-height: $doc-line-height;
-	background-color: $doc-bg-color;
-}
-
-body {
-	color: $doc-color;
-}
+@import 'primer/primer';
 
 
 
-// Import modules -------------------------------------------------------------
+// Add Toolkit ----------------------------------------------------------------
+//
+// The toolkit adds single-purpose classes that allow you to use practically
+// any css rule without ever having to write any new CSS, keeping the total
+// file size of the project's CSS down
 
-@import 'module/font';
-@import 'module/text';
-// @import 'module/form';
+@import 'toolkit/toolkit';
+
+
+
+// Module imports -------------------------------------------------------------
+//
+// Modules or components are usually higher in specificity, so they are
+// imported further down here
+//
+// Very much WIP
+
 // @import 'module/reporting';
-// @import 'module/utility';
+// @import 'module/breadcrumbs';
 // @import 'module/button';
-// @import 'module/wrapper';
+// @import 'module/hamburger';
 // @import 'module/lazy-image';
+// @import 'module/lightbox';
+// @import 'module/modal';
+// @import 'module/multi-select';
+// @import 'module/reporting';
+// @import 'module/styled-checkbox';
+// @import 'module/styled-select';
+// @import 'module/toggle';
+@import 'module/wrapper';
 
 
 
-// Common styles --------------------------------------------------------------
+// Partial imports ------------------------------------------------------------
+//
+// Partials are usually project-specific modules that aren't very reusable
 
-hr {
-	height: rem(1);
-	border: none;
-	background-color: rgba($doc-color, .1);
-	margin: 0 0 1em;
+// @import 'partials/xxxx';
 
-	&:last-child {
-		margin-bottom: 0;
-	}
-}
 
-.no-js__wrapper {
-	z-index: 9999;
-	background-color: rgba(0, 0, 0, .8);
-}
 
-// Print ----------------------------------------------------------------------
+// Loose styles ---------------------------------------------------------------
+//
+// Any other style declarations are written below
+
+// ...
+
+
+
+// Vendor imports -------------------------------------------------------------
+//
+// Partials are usually project-specific modules that aren't very reusable
+
+// @import 'partials/xxxx';
+
+
+
+// Print styles ---------------------------------------------------------------
 //
 // Inline to avoid the request
 

@@ -1,0 +1,13 @@
+// Grid Tools (v1) ------------------------------------------------------------
+
+@for $i from 1 through 12 {
+    .col-#{$i} { width: (100/12 * $i) * 1%; }
+}
+
+@each $bp, $bpVal in $breakpoints {
+    @media screen and (min-width: rem($bpVal,16)) {
+		@for $i from 1 through 12 {
+		    .#{$bp}-col-#{$i} { width: (100/12 * $i) * 1%; }
+		}
+    }
+}
