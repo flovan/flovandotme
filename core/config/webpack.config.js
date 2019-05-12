@@ -17,15 +17,16 @@ const routes = [
 ];
 
 const template = ejs.compile(fs.readFileSync(path.resolve(process.cwd(), 'src/template.html'), 'utf-8'));
-const ExtractFrontCss = new ExtractTextPlugin('front', 'assets/css/front.css');
+const ExtractFrontCss = new ExtractTextPlugin('main', 'assets/css/main.css');
 
 module.exports =  {
     entry: {
-		'front.app': path.resolve(process.cwd(), 'core/index.js')
+		app: path.resolve(process.cwd(), 'core/index.js'),
+		vendor: ['fontfaceobserver']
 	},
 
     output: {
-		filename: '[name].js',
+		filename: '[name]-[hash:6].js',
         path: path.resolve(process.cwd(), config.buildFolder),
 		publicPath: '/',
         libraryTarget: 'umd'
@@ -43,11 +44,18 @@ module.exports =  {
         }, {
             test: /\.jsx?$/,
             include: /(core|src)/,
-            loader: 'babel'
+            loader: 'babel',
+			query: {
+				// presets: ['es2015'],
+				compact: true
+			}
         }, {
-			test: /\.(png|jpg|jpeg|gif|svg)$/,
-			loader: `file?name=assets/img/[name].[ext]`,
-			include: /src\/assets\/img/
+			test: /\.(jpe?g|png|gif|svg)$/i,
+			loaders: [
+	            'file?name=assets/images/[name].[ext]',
+	            'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
+	        ],
+			include: /src\/assets\/images/
 		}, {
 			test: /\.(woff|woff2|svg|eot|ttf)$/,
 			loader: `file?name=assets/fonts/[name].[ext]`,
@@ -68,8 +76,9 @@ module.exports =  {
 	},
 
     plugins: [
+		// new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
         ExtractFrontCss,
-        new StaticSiteGeneratorPlugin('front.app', routes, {
+        new StaticSiteGeneratorPlugin('app', routes, {
             template: template
         })
     ].concat(PRODUCTION ? [

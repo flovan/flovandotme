@@ -3,8 +3,8 @@
 // This primer takes care of setting reasonable basic styles on various text
 // nodes, such as titles, lists and links.
 
-// ::-moz-selection { background: #fff657; color: $doc-color; text-shadow: none; }
-// ::selection      { background: #fff657; color: $doc-color; text-shadow: none; }
+::-moz-selection { background: $accent-2; color: $white; text-shadow: none; }
+::selection      { background: $accent-2; color: $white; text-shadow: none; }
 
 h1,
 h2,
@@ -45,13 +45,31 @@ blockquote {
 }
 
 a {
+	position: relative;
 	color: $doc-color;
 	outline: none;
+	text-decoration: none;
+	transition: color .2s $easeInOutQuart;
+
+	p &,
+	li & {
+		&:after {
+			content: '';
+			position: absolute;
+			bottom: .1em;
+			left: 0;
+			z-index: -1;
+			width: 100%;
+			height: $border-width;
+			background-color: $accent;
+		}
+	}
 
 	&:hover,
 	&:focus {
-		text-decoration: none;
-		color: $debian-red;
+		color: $accent;
+		transition-duration: .15s;
+		transition-timing-function: easeInOutSine;
 	}
 }
 

@@ -63,7 +63,28 @@
 //
 // Any other style declarations are written below
 
-// ...
+main {
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 61.8%;
+		height: 38.2vh;
+		background-image: url(../assets/images/small-halftone-pattern.png);
+
+		@media (min-width: rem(bp('s'), 16)) {
+			width: 38.2%;
+			height: 61.8vh;
+		}
+	}
+}
+
+.icon--flovan-mark-textured {
+	max-width: 100%;
+	height: auto;
+}
 
 
 

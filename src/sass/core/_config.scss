@@ -12,14 +12,12 @@ $doc-line-height:  1.5;
 
 // Theme specific colors
 
-$white:        #FFFFFF;
-$bridal-heath: #FFFAF6;
-$rodeo-dust:   #E5BC71;
-$debian-red:   #C61050;
-$java:         #1BA292;
-$paris:        #272965;
-$vulcan:       #10171C;
-$black:        #000000;
+$white:      #FFFFFF;
+$accent:     #00C853;
+$accent-2:   #f97c6a;
+$light-gray: #E0E0E0;
+$gray:       #9E9E9E;
+$black:      #10171C;
 
 
 
@@ -34,8 +32,8 @@ $info:    #51A1F0;
 
 // Aliases
 
-$doc-color:    $vulcan;
-$doc-bg-color: $bridal-heath;
+$doc-color:    $black;
+$doc-bg-color: $white;
 
 
 // Tinting and shading
@@ -48,7 +46,7 @@ $shade-amount: .6;
 // Border variables
 
 $border-width: 1px;
-$border-width-fat: 4px;
+$border-width-fat: .18em;
 $border-rounded-radius: 3px;
 
 
@@ -105,19 +103,9 @@ $easeInOutBack:  cubic-bezier(0.68, -0.55, 0.265, 1.55);
 // Can be used with `c(<key>)` or `color(<key>)`
 
 $colors: (
-	'rodeo-dust':   $rodeo-dust,
-	'debian-red':   $debian-red,
-	'paris':        $paris
+	'white':      $white,
+	'black':      $black
 );
-
-/*$colors: (
-	'white':        $white,
-	'rodeo-dust':   $rodeo-dust,
-	'debian-red':   $debian-red,
-	'java':         $java,
-	'paris':        $paris,
-	'vulcan':       $vulcan
-);*/
 
 
 // Breakpoint map

@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Webpack React</title>
+		<title>Flovan</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" type="text/css" href="assets/css/front.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+		<script>
+			if (sessionStorage.fontsLoaded) {
+				document.documentElement.classList.add('fonts-loaded');
+			}
+		</script>
 	</head>
 	<body>
 		<div id="root">

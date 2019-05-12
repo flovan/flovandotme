@@ -4,19 +4,31 @@
 // also inherits the HTML box-sizing setting down to all other elements.
 
 @font-face {
-	font-family: 'Canadian';
+	font-family: 'Tofino';
 	font-weight: normal;
-    font-style: normal;
-	src: url('../assets/fonts/canadian.woff') format('woff'),
-		 url('../assets/fonts/canadian.woff2') format('woff2');
+	font-style: normal;
+	src: url('../assets/fonts/Tofino-Regular.woff') format('woff'),
+		 url('../assets/fonts/Tofino-Regular.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Tofino';
+	font-weight: bold;
+	font-style: normal;
+	src: url('../assets/fonts/Tofino-Bold.woff') format('woff'),
+		 url('../assets/fonts/Tofino-Bold.woff2') format('woff2');
 }
 
 html {
 	box-sizing: border-box;
-	font-family: $serif-font-stack;
+	font-family: $sans-font-stack;
 	font-size: 100%;
 	line-height: $doc-line-height;
 	background-color: $doc-bg-color;
+
+	&.fonts-loaded {
+		font-family: Tofino, $sans-font-stack;
+	}
 
 	@media (min-width: em(bp('xl'), 16)) {
 		font-size: 110%;

@@ -14,7 +14,7 @@ const bs = browserSync.create();
 
 webpack(webpackConfig).watch({}, (err, stats) => {
     if (err) {
-        console.error('webpack build error', err);
+        console.log('webpack build error', err);
     } else {
         let changedModules = stats.compilation.modules.filter((module) => {
             return module.built && module.resource;
